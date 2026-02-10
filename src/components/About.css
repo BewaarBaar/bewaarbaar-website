@@ -237,3 +237,37 @@
   justify-content: center;
   font-size: 6rem;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .about__hero { padding: 80px 40px 50px; }
+  .about__heading { font-size: 3.2rem; }
+  .about__story { padding: 60px 40px; gap: 40px; }
+  .about__story-heading { font-size: 2.6rem; }
+  .about__values-block { padding: 60px 40px; }
+  .about__values-heading { font-size: 2.8rem; }
+  .about__founder { padding: 60px 40px; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .about__hero { padding: 60px 20px 40px; }
+  .about__heading { font-size: 2.6rem; }
+  .about__story { grid-template-columns: 1fr; padding: 40px 20px; }
+  .about__story-heading { font-size: 2.2rem; }
+  .about__story-image { order: -1; }
+  .about__story-image img { max-width: 300px; }
+  .about__values { grid-template-columns: 1fr; }
+  .about__values-block { padding: 40px 20px; }
+  .about__values-heading { font-size: 2.4rem; }
+  .about__values-content { padding: 30px 20px; }
+  .about__founder { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; }
+  .about__founder-blob { width: 200px; height: 200px; font-size: 4rem; margin: 0 auto; }
+  .about__image-full img { height: 300px; }
+  .about__deco { display: none; }
+}
+
+@media (max-width: 480px) {
+  .about__heading { font-size: 2.2rem; }
+  .about__intro { font-size: 1.4rem; }
+  .about__image-full img { height: 220px; }
+}

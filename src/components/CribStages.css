@@ -116,3 +116,14 @@
   color: #777;
   line-height: 1.5;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .crib-stages { padding: 40px 20px 50px; }
+  .crib-stages__title { font-size: 2.8rem; }
+  .crib-stages__grid { grid-template-columns: 1fr; gap: 20px; max-width: 400px; }
+}
+
+@media (max-width: 480px) {
+  .crib-stages__title { font-size: 2.4rem; }
+}

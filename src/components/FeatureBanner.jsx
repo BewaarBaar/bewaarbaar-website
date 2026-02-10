@@ -1,12 +1,15 @@
 import './FeatureBanner.css'
 import { Link } from 'react-router-dom'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const FeatureBanner = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="feature-banner">
+    <section className="feature-banner" ref={sectionRef}>
       <div className="feature-banner__grid">
         {/* Waarom Bewaarbaar */}
-        <Link to="/about" className="feature-banner__card feature-banner__card--dark">
+        <Link to="/about" className="feature-banner__card feature-banner__card--dark scroll-reveal scroll-reveal--left">
           <div className="feature-banner__card-content">
             <span className="feature-banner__label">POPULAIR</span>
             <h2 className="feature-banner__heading">Waarom ouders kiezen<br />voor Bewaarbaar</h2>
@@ -21,7 +24,7 @@ const FeatureBanner = () => {
         </Link>
 
         {/* Cadeau tip */}
-        <a href="#" className="feature-banner__card feature-banner__card--mint">
+        <a href="#" className="feature-banner__card feature-banner__card--mint scroll-reveal scroll-reveal--right">
           <div className="feature-banner__card-content">
             <h2 className="feature-banner__heading feature-banner__heading--large">Het perfecte cadeau &#127873;</h2>
             <p className="feature-banner__subtext">

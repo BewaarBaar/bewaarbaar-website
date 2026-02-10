@@ -1,12 +1,15 @@
 import './ShopCategories.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
 
 const ShopCategories = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="shop-categories">
+    <section className="shop-categories" ref={sectionRef}>
       <div className="shop-categories__grid">
-        <a href="#" className="shop-categories__card shop-categories__card--teal">
+        <a href="#" className="shop-categories__card shop-categories__card--teal scroll-reveal scroll-reveal--left">
           <h2 className="shop-categories__title">Basisschool Bewaarmap</h2>
           <div className="shop-categories__image-wrapper shop-categories__image-wrapper--heart">
             <div className="shop-categories__image-placeholder shop-categories__image-placeholder--bookmark">
@@ -19,7 +22,7 @@ const ShopCategories = () => {
           </div>
         </a>
 
-        <a href="#" className="shop-categories__card shop-categories__card--peach">
+        <a href="#" className="shop-categories__card shop-categories__card--peach scroll-reveal scroll-reveal--right">
           <h2 className="shop-categories__title">Kinderdagverblijf Bewaarmap</h2>
           <div className="shop-categories__image-wrapper shop-categories__image-wrapper--cloud">
             <div className="shop-categories__image-placeholder shop-categories__image-placeholder--heart">

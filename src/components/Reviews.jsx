@@ -1,4 +1,5 @@
 import './Reviews.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const reviews = [
   {
@@ -50,9 +51,11 @@ const Stars = ({ count }) => (
 )
 
 const Reviews = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="reviews">
-      <div className="reviews__header">
+    <section className="reviews" ref={sectionRef}>
+      <div className="reviews__header scroll-reveal">
         <h2 className="reviews__title">Wat ouders zeggen</h2>
         <p className="reviews__subtitle">
           Meer dan 500 tevreden ouders gingen je voor
@@ -65,7 +68,7 @@ const Reviews = () => {
 
       <div className="reviews__grid">
         {reviews.map((review, index) => (
-          <div className="reviews__card" key={index}>
+          <div className={`reviews__card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index}>
             <Stars count={review.rating} />
             <p className="reviews__card-text">"{review.text}"</p>
             <div className="reviews__card-footer">

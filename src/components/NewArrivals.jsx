@@ -1,4 +1,5 @@
 import './NewArrivals.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
@@ -36,9 +37,11 @@ const products = [
 ]
 
 const NewArrivals = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="new-arrivals">
-      <div className="new-arrivals__header">
+    <section className="new-arrivals" ref={sectionRef}>
+      <div className="new-arrivals__header scroll-reveal">
         <h2 className="new-arrivals__section-title">Onze Bewaarmappen</h2>
         <p className="new-arrivals__section-desc">
           Ontdek onze collectie speciaal ontworpen bewaarmappen voor de mooiste herinneringen.
@@ -47,7 +50,7 @@ const NewArrivals = () => {
 
       <div className="new-arrivals__products">
         {products.map((product, index) => (
-          <a href="#" className="new-arrivals__product" key={index}>
+          <a href="#" className={`new-arrivals__product scroll-reveal scroll-reveal--delay-${index + 1}`} key={index}>
             <div className="new-arrivals__product-image-wrap">
               {product.comingSoon && (
                 <span className="new-arrivals__badge new-arrivals__badge--coming">Coming Soon</span>

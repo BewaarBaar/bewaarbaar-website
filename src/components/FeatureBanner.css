@@ -103,3 +103,18 @@
 .feature-banner__bg-pattern span {
   font-size: 6rem;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .feature-banner { padding: 0 15px 20px; }
+  .feature-banner__grid { grid-template-columns: 1fr; }
+  .feature-banner__card { min-height: 280px; padding: 30px; }
+  .feature-banner__heading { font-size: 2.4rem; }
+  .feature-banner__heading--large { font-size: 2.6rem; }
+}
+
+@media (max-width: 480px) {
+  .feature-banner__heading { font-size: 2rem; }
+  .feature-banner__heading--large { font-size: 2.2rem; }
+  .feature-banner__card { min-height: 240px; padding: 24px; }
+}

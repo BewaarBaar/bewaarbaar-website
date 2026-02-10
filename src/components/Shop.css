@@ -180,3 +180,24 @@
   color: var(--color-dark);
   margin-bottom: 12px;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .shop__hero { grid-template-columns: 1fr; min-height: auto; }
+  .shop__hero-image { height: 300px; }
+  .shop__grid { grid-template-columns: repeat(2, 1fr); padding: 30px 30px 60px; }
+  .shop__filter { padding: 16px 30px; }
+}
+
+@media (max-width: 768px) {
+  .shop__hero-text { padding: 40px 20px; }
+  .shop__hero-title { font-size: 2.8rem; }
+  .shop__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 20px 40px; }
+  .shop__filter { padding: 14px 20px; }
+}
+
+@media (max-width: 480px) {
+  .shop__hero-title { font-size: 2.4rem; }
+  .shop__hero-image { height: 220px; }
+  .shop__grid { grid-template-columns: 1fr; }
+}

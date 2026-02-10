@@ -9,7 +9,16 @@
       "Bash(npm install:*)",
       "Bash(git init:*)",
       "Bash(gh auth status:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(curl:*)",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Bash(/opt/homebrew/bin/gh auth status)",
+      "Bash(dig:*)",
+      "Bash(nslookup:*)"
     ]
   }
 }

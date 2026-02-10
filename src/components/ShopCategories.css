@@ -123,3 +123,16 @@
   height: 80px;
   z-index: 3;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .shop-categories { padding: 20px 15px; }
+  .shop-categories__grid { grid-template-columns: 1fr; gap: 15px; }
+  .shop-categories__card { min-height: 350px; padding: 24px 20px 0; }
+  .shop-categories__title { font-size: 2.4rem; }
+}
+
+@media (max-width: 480px) {
+  .shop-categories__card { min-height: 300px; }
+  .shop-categories__title { font-size: 2rem; }
+}

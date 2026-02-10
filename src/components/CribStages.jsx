@@ -1,4 +1,5 @@
 import './CribStages.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const steps = [
   {
@@ -22,9 +23,11 @@ const steps = [
 ]
 
 const CribStages = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="crib-stages">
-      <div className="crib-stages__content">
+    <section className="crib-stages" ref={sectionRef}>
+      <div className="crib-stages__content scroll-reveal">
         <h2 className="crib-stages__title">Hoe het werkt</h2>
         <p className="crib-stages__desc">
           In drie simpele stappen bewaar je alle mooie herinneringen van je kind op een georganiseerde manier.
@@ -33,8 +36,8 @@ const CribStages = () => {
       </div>
 
       <div className="crib-stages__grid">
-        {steps.map((step) => (
-          <div className="crib-stages__stage" key={step.number}>
+        {steps.map((step, index) => (
+          <div className={`crib-stages__stage scroll-reveal scroll-reveal--delay-${index + 1}`} key={step.number}>
             <div className="crib-stages__number">
               <span>{step.number}</span>
             </div>

@@ -114,3 +114,17 @@
 .faq__item--open {
   background: rgba(45, 212, 168, 0.04);
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .faq__hero { padding: 60px 20px 40px; }
+  .faq__heading { font-size: 2.8rem; }
+  .faq__content { padding: 0 20px; }
+  .faq__question { padding: 16px 0; }
+  .faq__question h3 { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .faq__heading { font-size: 2.4rem; }
+  .faq__content { padding: 0 15px; }
+}

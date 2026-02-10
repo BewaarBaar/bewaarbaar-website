@@ -180,3 +180,26 @@
   font-size: 4rem;
   color: #93c5fd;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .footer { padding: 60px 30px 30px; }
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer__image { display: none; }
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 40px 20px 20px; }
+  .footer__top { grid-template-columns: 1fr; gap: 30px; }
+  .footer__heading { font-size: 2.4rem; }
+  .footer__form { max-width: 100%; }
+  .footer__links { flex-wrap: wrap; gap: 30px; }
+  .footer__links-col { min-width: 120px; }
+  .footer__social { justify-content: center; }
+  .footer__deco { display: none; }
+}
+
+@media (max-width: 480px) {
+  .footer__heading { font-size: 2rem; }
+  .footer__links { flex-direction: column; gap: 24px; }
+}

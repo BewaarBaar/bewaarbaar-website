@@ -55,3 +55,22 @@
   color: #fff;
   transform: translateY(-2px);
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .hero__overlay { padding: 40px; }
+  .hero__title { font-size: 2.6rem; }
+}
+
+@media (max-width: 768px) {
+  .hero { height: 60vh; min-height: 400px; }
+  .hero__overlay { padding: 30px 20px; align-items: center; text-align: center; }
+  .hero__title { font-size: 2.2rem; text-align: center; }
+  .hero__cta { font-size: 1.3rem; padding: 14px 28px; }
+}
+
+@media (max-width: 480px) {
+  .hero { min-height: 350px; }
+  .hero__title { font-size: 1.8rem; }
+  .hero__cta { padding: 12px 24px; font-size: 1.2rem; }
+}

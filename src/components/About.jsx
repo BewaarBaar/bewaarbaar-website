@@ -1,12 +1,15 @@
 import './About.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import happykidsImg from '../assets/basisschool-bewaarmap-happykids.jpg'
 
 const About = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="about">
+    <section className="about" ref={sectionRef}>
       {/* Hero intro */}
-      <div className="about__hero">
+      <div className="about__hero scroll-reveal">
         <span className="about__deco about__deco--1">&#9827;</span>
         <span className="about__deco about__deco--2">&#9733;</span>
         <p className="about__label">OVER BEWAARBAAR</p>
@@ -20,13 +23,13 @@ const About = () => {
       </div>
 
       {/* Full-width image */}
-      <div className="about__image-full">
+      <div className="about__image-full scroll-reveal scroll-reveal--scale">
         <img src={happykidsImg} alt="Kinderen met hun bewaarmap" />
       </div>
 
       {/* Story section */}
       <div className="about__story">
-        <div className="about__story-text">
+        <div className="about__story-text scroll-reveal scroll-reveal--left">
           <p className="about__label">ONS VERHAAL</p>
           <h2 className="about__story-heading">
             Het idee voor Bewaarbaar ontstond vanuit een herkenbaar gevoel.
@@ -38,14 +41,14 @@ const About = () => {
             Zo ontstond <em>De grote basisschool bewaarmap</em>. Een map die meegroeit van groep 1 tot en met groep 8. Met ruimte om te schrijven, te tekenen, te plakken en te bewaren. Geen invulboek dat 'af moet', maar een bewaarmap die je op je eigen tempo vult — samen met je kind.
           </p>
         </div>
-        <div className="about__story-image">
+        <div className="about__story-image scroll-reveal scroll-reveal--right">
           <img src={basisschoolImg} alt="De grote basisschool bewaarmap" />
         </div>
       </div>
 
       {/* Values section */}
       <div className="about__values">
-        <div className="about__values-block">
+        <div className="about__values-block scroll-reveal">
           <span className="about__deco about__deco--4">&#9825;</span>
           <p className="about__label">ONZE WAARDEN</p>
           <h2 className="about__values-heading">
@@ -54,13 +57,13 @@ const About = () => {
           <span className="about__deco about__deco--5">&#10047;</span>
         </div>
         <div className="about__values-content">
-          <div className="about__values-card">
+          <div className="about__values-card scroll-reveal scroll-reveal--delay-1">
             <h3 className="about__values-card-title">Met aandacht gemaakt</h3>
             <p className="about__values-card-text">
               Zachte illustraties, speelse pagina's en veel ruimte voor eigen herinneringen. Zodat het niet alleen leuk is om nu te maken, maar ook bijzonder blijft om later terug te kijken.
             </p>
           </div>
-          <div className="about__values-card">
+          <div className="about__values-card scroll-reveal scroll-reveal--delay-2">
             <h3 className="about__values-card-title">Voor ouders die willen bewaren wat telt</h3>
             <p className="about__values-card-text">
               Bewaarbaar is er voor ouders die willen bewaren wat telt. Voor nu. En voor later.
@@ -70,7 +73,7 @@ const About = () => {
       </div>
 
       {/* Founder note */}
-      <div className="about__founder">
+      <div className="about__founder scroll-reveal">
         <div className="about__founder-text">
           <p className="about__founder-note">
             <em>Een bericht van het Bewaarbaar team:</em>

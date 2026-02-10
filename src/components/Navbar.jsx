@@ -1,19 +1,22 @@
+import { useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo-black.png'
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <header className="navbar">
       <nav className="navbar__inner">
-        <Link to="/" className="navbar__logo">
+        <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
           <img src={logo} alt="Bewaarbaar" className="navbar__logo-img" />
         </Link>
 
-        <ul className="navbar__links">
-          <li><Link to="/shop" className="navbar__link">Shop</Link></li>
-          <li><Link to="/faq" className="navbar__link">FAQ</Link></li>
-          <li><Link to="/about" className="navbar__link">Over Ons</Link></li>
+        <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
+          <li><Link to="/shop" className="navbar__link" onClick={() => setMenuOpen(false)}>Shop</Link></li>
+          <li><Link to="/faq" className="navbar__link" onClick={() => setMenuOpen(false)}>FAQ</Link></li>
+          <li><Link to="/about" className="navbar__link" onClick={() => setMenuOpen(false)}>Over Ons</Link></li>
         </ul>
 
         <div className="navbar__right">
@@ -31,6 +34,15 @@ const Navbar = () => {
               <path d="M16 10a4 4 0 01-8 0"/>
             </svg>
             <span className="navbar__cart-count">0</span>
+          </button>
+          <button
+            className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </nav>

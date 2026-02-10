@@ -1,4 +1,5 @@
 import './Shop.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
@@ -40,10 +41,12 @@ const products = [
 ]
 
 const Shop = () => {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section className="shop">
+    <section className="shop" ref={sectionRef}>
       {/* Hero banner */}
-      <div className="shop__hero">
+      <div className="shop__hero scroll-reveal">
         <div className="shop__hero-text">
           <span className="shop__hero-deco shop__hero-deco--1">&#10084;</span>
           <h1 className="shop__hero-title">Onze Bewaarmappen</h1>
@@ -71,7 +74,7 @@ const Shop = () => {
       {/* Product grid */}
       <div className="shop__grid">
         {products.map((product, index) => (
-          <div className="shop__product" key={index}>
+          <div className={`shop__product scroll-reveal scroll-reveal--delay-${index + 1}`} key={index}>
             <div className="shop__product-image-wrap">
               {product.comingSoon && (
                 <span className="shop__product-badge">Komt binnenkort</span>
