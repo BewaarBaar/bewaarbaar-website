@@ -1,0 +1,138 @@
+.new-arrivals {
+  padding: 60px 30px;
+  background-color: var(--color-cream);
+}
+
+.new-arrivals__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.new-arrivals__section-title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.new-arrivals__section-desc {
+  font-size: 1.5rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.new-arrivals__products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.new-arrivals__product {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.new-arrivals__product:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.new-arrivals__product-image-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.new-arrivals__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.new-arrivals__badge--coming {
+  background: var(--color-teal);
+  color: #fff;
+}
+
+.new-arrivals__product-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.new-arrivals__product-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.new-arrivals__product-placeholder-emoji {
+  font-size: 5rem;
+}
+
+.new-arrivals__product-name {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-dark);
+}
+
+.new-arrivals__product-name--teal {
+  color: var(--color-teal-dark);
+}
+
+.new-arrivals__product-desc {
+  font-size: 1.3rem;
+  color: #888;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.new-arrivals__product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-arrivals__product-price {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--color-teal-dark);
+}
+
+.new-arrivals__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-teal);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.new-arrivals__add-btn:hover {
+  background: var(--color-teal-dark);
+}

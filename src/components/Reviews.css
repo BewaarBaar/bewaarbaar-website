@@ -1,0 +1,111 @@
+/* ===== Reviews Section ===== */
+
+.reviews {
+  padding: 80px 60px;
+  background-color: #fff;
+}
+
+.reviews__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.reviews__title {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.reviews__subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.reviews__avg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reviews__avg-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.reviews__stars {
+  display: flex;
+  gap: 2px;
+  font-size: 1.6rem;
+}
+
+.reviews__star--filled {
+  color: #fbbf24;
+}
+
+.reviews__star--empty {
+  color: #ddd;
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reviews__card:nth-child(1) { background: #d4f5e9; }
+.reviews__card:nth-child(2) { background: #fde8d0; }
+.reviews__card:nth-child(3) { background: #ddd6fe; }
+.reviews__card:nth-child(4) { background: #fde8d0; }
+.reviews__card:nth-child(5) { background: #d4f5e9; }
+.reviews__card:nth-child(6) { background: #ddd6fe; }
+
+.reviews__card {
+  background: var(--color-cream);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reviews__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.reviews__card .reviews__stars {
+  font-size: 1.4rem;
+}
+
+.reviews__card-text {
+  font-size: 1.4rem;
+  color: #444;
+  line-height: 1.7;
+  flex: 1;
+  font-style: italic;
+}
+
+.reviews__card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.reviews__card-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.reviews__card-date {
+  font-size: 1.2rem;
+  color: #999;
+}

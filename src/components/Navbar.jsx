@@ -1,0 +1,41 @@
+import './Navbar.css'
+import { Link } from 'react-router-dom'
+import logo from '../assets/logo-black.png'
+
+const Navbar = () => {
+  return (
+    <header className="navbar">
+      <nav className="navbar__inner">
+        <Link to="/" className="navbar__logo">
+          <img src={logo} alt="Bewaarbaar" className="navbar__logo-img" />
+        </Link>
+
+        <ul className="navbar__links">
+          <li><Link to="/shop" className="navbar__link">Shop</Link></li>
+          <li><Link to="/faq" className="navbar__link">FAQ</Link></li>
+          <li><Link to="/about" className="navbar__link">Over Ons</Link></li>
+        </ul>
+
+        <div className="navbar__right">
+          <a href="#" className="navbar__right-link">Contact</a>
+          <button className="navbar__icon" aria-label="Zoeken">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+          <button className="navbar__icon navbar__cart" aria-label="Winkelwagen">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span className="navbar__cart-count">0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+  )
+}
+
+export default Navbar

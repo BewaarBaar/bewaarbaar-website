@@ -1,0 +1,118 @@
+.crib-stages {
+  padding: 60px 30px 80px;
+  background-color: var(--color-cream);
+  text-align: center;
+  position: relative;
+}
+
+.crib-stages::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 75%;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 0 0 50% 50% / 0 0 30% 30%;
+  z-index: 0;
+}
+
+.crib-stages__content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+.crib-stages__title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.crib-stages__desc {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.crib-stages__cta {
+  display: inline-block;
+  background: var(--color-teal);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 30px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+}
+
+.crib-stages__cta:hover {
+  background: var(--color-teal-dark);
+}
+
+.crib-stages__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.crib-stages__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.crib-stages__number {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.crib-stages__number span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-teal-dark);
+}
+
+.crib-stages__emoji-wrap {
+  margin-bottom: 16px;
+}
+
+.crib-stages__emoji {
+  font-size: 4rem;
+}
+
+.crib-stages__label {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.crib-stages__step-desc {
+  font-size: 1.4rem;
+  color: #777;
+  line-height: 1.5;
+}
