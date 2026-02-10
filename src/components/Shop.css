@@ -199,5 +199,20 @@
 @media (max-width: 480px) {
   .shop__hero-title { font-size: 2.4rem; }
   .shop__hero-image { height: 220px; }
-  .shop__grid { grid-template-columns: 1fr; }
+  .shop__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 20px 20px 30px;
+    scrollbar-width: none;
+  }
+  .shop__grid::-webkit-scrollbar { display: none; }
+  .shop__product {
+    min-width: 250px;
+    max-width: 270px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
 }

@@ -119,9 +119,26 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .crib-stages { padding: 40px 20px 50px; }
+  .crib-stages { padding: 40px 0 50px; }
+  .crib-stages__content { padding: 0 20px; }
   .crib-stages__title { font-size: 2.8rem; }
-  .crib-stages__grid { grid-template-columns: 1fr; gap: 20px; max-width: 400px; }
+  .crib-stages__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 0 20px 15px;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .crib-stages__grid::-webkit-scrollbar { display: none; }
+  .crib-stages__stage {
+    min-width: 240px;
+    max-width: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 480px) {
