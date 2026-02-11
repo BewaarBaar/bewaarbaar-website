@@ -25,7 +25,7 @@ const Footer = () => {
             <h3 className="footer__links-title">OVER ONS</h3>
             <ul>
               <li><Link to="/about">Ons Verhaal</Link></li>
-              <li><Link to="/about">Contact</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
           <div className="footer__links-col">
@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="footer__links-col">
             <h3 className="footer__links-title">KLANTENSERVICE</h3>
             <ul>
-              <li><a href="#">Veelgestelde Vragen</a></li>
+              <li><Link to="/faq">Veelgestelde Vragen</Link></li>
               <li><a href="#">Verzending & Retour</a></li>
               <li><a href="#">Privacybeleid</a></li>
               <li><a href="#">Algemene Voorwaarden</a></li>

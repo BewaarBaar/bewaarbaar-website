@@ -20,7 +20,7 @@ const Navbar = () => {
         </ul>
 
         <div className="navbar__right">
-          <a href="#" className="navbar__right-link">Contact</a>
+          <Link to="/contact" className="navbar__right-link" onClick={() => setMenuOpen(false)}>Contact</Link>
           <button className="navbar__icon" aria-label="Zoeken">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8"/>

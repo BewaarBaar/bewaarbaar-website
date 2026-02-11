@@ -59,6 +59,7 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
               googleFonts: ["Montserrat"]
             },
             cart: {
+              popup: false,
               styles: {
                 button: {
                   "font-family": "Montserrat, sans-serif",

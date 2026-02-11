@@ -1,5 +1,6 @@
 import './NewArrivals.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useGlowEffect } from '../hooks/useGlowEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
@@ -38,6 +39,7 @@ const products = [
 
 const NewArrivals = () => {
   const sectionRef = useScrollReveal()
+  const { handleMouseMove, handleMouseLeave } = useGlowEffect()
 
   return (
     <section className="new-arrivals" ref={sectionRef}>
@@ -50,7 +52,7 @@ const NewArrivals = () => {
 
       <div className="new-arrivals__products">
         {products.map((product, index) => (
-          <a href="#" className={`new-arrivals__product scroll-reveal scroll-reveal--delay-${index + 1}`} key={index}>
+          <a href="#" className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div className="new-arrivals__product-image-wrap">
               {product.comingSoon && (
                 <span className="new-arrivals__badge new-arrivals__badge--coming">Coming Soon</span>
