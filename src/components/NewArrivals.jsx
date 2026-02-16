@@ -4,6 +4,7 @@ import { useGlowEffect } from '../hooks/useGlowEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
+import mapBinnenkant from '../assets/map_binnenkant_sfeer.png'
 
 const products = [
   {
@@ -11,6 +12,7 @@ const products = [
     description: 'Organiseer alle schoolherinneringen op een plek met deze praktische bewaarma...',
     price: '\u20ac39.99',
     image: basisschoolImg,
+    hoverImage: mapBinnenkant,
     badge: null,
     comingSoon: false,
   },
@@ -19,6 +21,7 @@ const products = [
     description: 'Binnenkort verkrijgbaar! Bewaar alle mooie knutselwerkjes en herinneringen van het...',
     price: '\u20ac0.00',
     image: kinderdagverblijfImg,
+    hoverImage: null,
     comingSoon: true,
   },
   {
@@ -26,6 +29,7 @@ const products = [
     description: 'Binnenkort verkrijgbaar! De perfecte plek om diploma\'s, rapporten en bijzondere...',
     price: '\u20ac0.00',
     image: null,
+    hoverImage: null,
     comingSoon: true,
   },
   {
@@ -33,13 +37,14 @@ const products = [
     description: 'Binnenkort verkrijgbaar! Leg alle bijzondere momenten van het eerste levensjaar vast in...',
     price: '\u20ac0.00',
     image: null,
+    hoverImage: null,
     comingSoon: true,
   },
 ]
 
 const NewArrivals = () => {
   const sectionRef = useScrollReveal()
-  const { handleMouseMove, handleMouseLeave } = useGlowEffect()
+  const { handleMouseMove: glowMove, handleMouseLeave: glowLeave } = useGlowEffect()
 
   return (
     <section className="new-arrivals" ref={sectionRef}>
@@ -52,13 +57,18 @@ const NewArrivals = () => {
 
       <div className="new-arrivals__products">
         {products.map((product, index) => (
-          <div className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+          <div className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index} onMouseMove={glowMove} onMouseLeave={glowLeave}>
             <div className="new-arrivals__product-image-wrap">
               {product.comingSoon && (
                 <span className="new-arrivals__badge new-arrivals__badge--coming">Coming Soon</span>
               )}
               {product.image ? (
-                <img src={product.image} alt={product.name} className="new-arrivals__product-img" />
+                <div className="new-arrivals__image-swap">
+                  <img src={product.image} alt={product.name} className="new-arrivals__product-img new-arrivals__product-img--front" />
+                  {product.hoverImage && (
+                    <img src={product.hoverImage} alt={`${product.name} binnenkant`} className="new-arrivals__product-img new-arrivals__product-img--back" />
+                  )}
+                </div>
               ) : (
                 <div className="new-arrivals__product-placeholder" style={{
                   background: product.comingSoon ? 'var(--color-teal-light)' : '#eee'

@@ -1,0 +1,229 @@
+.product-showcase {
+  padding: 60px 30px 80px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.product-showcase__title {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.product-showcase__subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 50px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-showcase__container {
+  display: flex;
+  gap: 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* Main image viewer */
+.product-showcase__viewer {
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--color-cream);
+  aspect-ratio: 1;
+  max-width: 500px;
+}
+
+.product-showcase__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.product-showcase__image--active {
+  opacity: 1;
+}
+
+.product-showcase__viewer:hover .product-showcase__image--active {
+  transform: scale(1.03);
+}
+
+/* Thumbnail navigation */
+.product-showcase__thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-showcase__thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: var(--color-cream);
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 6px;
+}
+
+.product-showcase__thumb:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-showcase__thumb--active {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 2px rgba(45, 212, 168, 0.2);
+}
+
+.product-showcase__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-showcase__thumb-label {
+  display: none;
+}
+
+/* Info panel */
+.product-showcase__info {
+  flex: 1;
+  text-align: left;
+  max-width: 400px;
+}
+
+.product-showcase__product-name {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.product-showcase__price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  margin-bottom: 16px;
+}
+
+.product-showcase__desc {
+  font-size: 1.4rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.product-showcase__features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.product-showcase__feature {
+  font-size: 1.3rem;
+  color: #555;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-showcase__feature-icon {
+  font-size: 1.6rem;
+}
+
+.product-showcase__cta {
+  display: inline-block;
+  background: var(--color-teal);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 30px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.product-showcase__cta:hover {
+  background: var(--color-teal-dark);
+  transform: translateY(-2px);
+}
+
+/* View indicator dots */
+.product-showcase__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.product-showcase__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.product-showcase__dot--active {
+  background: var(--color-teal);
+  transform: scale(1.3);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .product-showcase { padding: 40px 20px 50px; }
+  .product-showcase__title { font-size: 2.8rem; }
+  .product-showcase__container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .product-showcase__viewer {
+    max-width: 100%;
+    width: 100%;
+  }
+  .product-showcase__thumbs {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .product-showcase__thumb {
+    width: 60px;
+    height: 60px;
+  }
+  .product-showcase__info {
+    text-align: center;
+    max-width: 100%;
+  }
+  .product-showcase__features {
+    text-align: left;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-showcase__title { font-size: 2.4rem; }
+  .product-showcase__product-name { font-size: 2.2rem; }
+}

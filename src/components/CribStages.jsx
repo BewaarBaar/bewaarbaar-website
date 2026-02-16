@@ -27,7 +27,7 @@ const CribStages = () => {
   const sectionRef = useScrollReveal()
 
   return (
-    <section className="crib-stages" ref={sectionRef}>
+    <section className="crib-stages animated-gradient noise-texture" ref={sectionRef}>
       <div className="crib-stages__content scroll-reveal">
         <h2 className="crib-stages__title">Hoe het werkt</h2>
         <p className="crib-stages__desc">

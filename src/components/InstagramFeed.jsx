@@ -12,7 +12,7 @@ const InstagramFeed = () => {
   const sectionRef = useScrollReveal()
 
   return (
-    <section className="instagram-feed" ref={sectionRef}>
+    <section className="instagram-feed noise-texture" ref={sectionRef}>
       <h2 className="instagram-feed__title scroll-reveal">Volg ons op Instagram</h2>
       <p className="instagram-feed__subtitle scroll-reveal">
         Inspiratie, tips en de mooiste momenten van andere ouders.
