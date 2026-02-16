@@ -24,15 +24,15 @@ const FeatureBanner = () => {
         </Link>
 
         {/* Cadeau tip */}
-        <a href="#" className="feature-banner__card feature-banner__card--mint scroll-reveal scroll-reveal--right">
+        <Link to="/shop" className="feature-banner__card feature-banner__card--mint scroll-reveal scroll-reveal--right">
           <div className="feature-banner__card-content">
             <h2 className="feature-banner__heading feature-banner__heading--large">Het perfecte cadeau &#127873;</h2>
             <p className="feature-banner__subtext">
               Verras een ouder met het mooiste geschenk: een plek om alle herinneringen te bewaren.
             </p>
-            <span className="feature-banner__cta-btn feature-banner__cta-btn--outline">Bekijk Cadeausets</span>
+            <span className="feature-banner__cta-btn feature-banner__cta-btn--outline">Bekijk de Collectie</span>
           </div>
-        </a>
+        </Link>
       </div>
     </section>
   )

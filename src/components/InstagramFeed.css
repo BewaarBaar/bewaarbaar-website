@@ -1,0 +1,110 @@
+.instagram-feed {
+  padding: 60px 30px 80px;
+  background-color: var(--color-cream);
+  text-align: center;
+}
+
+.instagram-feed__title {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.instagram-feed__subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.instagram-feed__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 36px;
+}
+
+.instagram-feed__item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instagram-feed__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.instagram-feed__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.instagram-feed__placeholder-emoji {
+  font-size: 3rem;
+}
+
+.instagram-feed__placeholder-text {
+  font-size: 1.2rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.instagram-feed__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.instagram-feed__cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.instagram-feed__cta svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .instagram-feed { padding: 40px 20px 50px; }
+  .instagram-feed__title { font-size: 2.8rem; }
+  .instagram-feed__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instagram-feed__title { font-size: 2.4rem; }
+}

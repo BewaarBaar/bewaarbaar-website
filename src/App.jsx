@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
@@ -10,12 +11,13 @@ import CribStages from './components/CribStages'
 import About from './components/About'
 import Shop from './components/Shop'
 import Footer from './components/Footer'
-import Reviews from './components/Reviews'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import StatsCounter from './components/StatsCounter'
 import StickyOrderButton from './components/StickyOrderButton'
 import PageTransition from './components/PageTransition'
+import NotFound from './components/NotFound'
+import InstagramFeed from './components/InstagramFeed'
 
 function HomePage() {
   return (
@@ -26,9 +28,17 @@ function HomePage() {
       <FeatureBanner />
       <StatsCounter />
       <CribStages />
-      <Reviews />
+      <InstagramFeed />
     </PageTransition>
   )
+}
+
+function ScrollToTop() {
+  const location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+  return null
 }
 
 function AnimatedRoutes() {
@@ -42,6 +52,7 @@ function AnimatedRoutes() {
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )
@@ -50,6 +61,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <main>
         <AnimatedRoutes />

@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--color-cream);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--color-teal-light);
+  border-bottom: 1px solid rgba(45, 212, 168, 0.15);
 }
 
 .navbar__inner {
@@ -167,7 +167,7 @@
     top: 74px;
     left: 0;
     right: 0;
-    background: var(--color-cream);
+    background: var(--color-teal-light);
     flex-direction: column;
     align-items: center;
     gap: 0;

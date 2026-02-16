@@ -52,7 +52,7 @@ const NewArrivals = () => {
 
       <div className="new-arrivals__products">
         {products.map((product, index) => (
-          <a href="#" className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+          <div className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div className="new-arrivals__product-image-wrap">
               {product.comingSoon && (
                 <span className="new-arrivals__badge new-arrivals__badge--coming">Coming Soon</span>
@@ -81,7 +81,7 @@ const NewArrivals = () => {
                 </button>
               )}
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>

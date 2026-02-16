@@ -1,4 +1,5 @@
 import './CribStages.css'
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const steps = [
@@ -32,7 +33,7 @@ const CribStages = () => {
         <p className="crib-stages__desc">
           In drie simpele stappen bewaar je alle mooie herinneringen van je kind op een georganiseerde manier.
         </p>
-        <a href="#" className="crib-stages__cta">Bekijk de Collectie</a>
+        <Link to="/shop" className="crib-stages__cta">Bekijk de Collectie</Link>
       </div>
 
       <div className="crib-stages__grid">

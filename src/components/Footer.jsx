@@ -40,9 +40,9 @@ const Footer = () => {
             <h3 className="footer__links-title">KLANTENSERVICE</h3>
             <ul>
               <li><Link to="/faq">Veelgestelde Vragen</Link></li>
-              <li><a href="#">Verzending & Retour</a></li>
-              <li><a href="#">Privacybeleid</a></li>
-              <li><a href="#">Algemene Voorwaarden</a></li>
+              <li><Link to="/contact">Verzending & Retour</Link></li>
+              <li><Link to="/faq">Privacybeleid</Link></li>
+              <li><Link to="/faq">Algemene Voorwaarden</Link></li>
             </ul>
           </div>
         </div>
