@@ -56,7 +56,9 @@ const ProductModal = ({ product, onClose }) => {
               <li>🇳🇱 Ontworpen & gedrukt in Nederland</li>
             </ul>
             {product.shopifyId && (
-              <ShopifyBuyButton productId={product.shopifyId} />
+              <div className="product-modal__buy">
+                <ShopifyBuyButton productId={product.shopifyId} />
+              </div>
             )}
           </div>
         </div>
