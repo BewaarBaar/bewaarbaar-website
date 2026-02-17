@@ -23,7 +23,10 @@
 }
 
 .stats__icon {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 4px;
 }
 

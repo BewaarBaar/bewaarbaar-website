@@ -95,12 +95,11 @@
   color: var(--color-teal-dark);
 }
 
-.crib-stages__emoji-wrap {
+.crib-stages__icon-wrap {
   margin-bottom: 16px;
-}
-
-.crib-stages__emoji {
-  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .crib-stages__label {

@@ -40,6 +40,10 @@ const reviews = [
   },
 ]
 
+const getInitials = (name) => {
+  return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()
+}
+
 const Stars = ({ count }) => (
   <div className="reviews__stars">
     {Array.from({ length: 5 }, (_, i) => (
@@ -72,7 +76,16 @@ const Reviews = () => {
             <Stars count={review.rating} />
             <p className="reviews__card-text">"{review.text}"</p>
             <div className="reviews__card-footer">
-              <span className="reviews__card-name">{review.name}</span>
+              <div className="reviews__card-author">
+                <span className="reviews__avatar">{getInitials(review.name)}</span>
+                <div className="reviews__author-info">
+                  <span className="reviews__card-name">{review.name}</span>
+                  <span className="reviews__verified">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Geverifieerd
+                  </span>
+                </div>
+              </div>
               <span className="reviews__card-date">{review.date}</span>
             </div>
           </div>

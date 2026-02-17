@@ -99,10 +99,46 @@
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+.reviews__card-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviews__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-dark);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.reviews__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
 .reviews__card-name {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-dark);
+}
+
+.reviews__verified {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.1rem;
+  color: var(--color-teal-dark);
+  font-weight: 500;
 }
 
 .reviews__card-date {

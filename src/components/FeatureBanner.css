@@ -33,13 +33,11 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Large item — spans all rows on left */
 .bento__item--large {
   grid-area: large;
   min-height: 420px;
 }
 
-/* Small items — stacked on right */
 .bento__item--small:nth-child(2) {
   grid-area: small1;
 }
@@ -57,7 +55,6 @@
   gap: 4px;
 }
 
-/* Wide item — under the two small blocks */
 .bento__item--wide {
   grid-area: wide;
   min-height: 200px;
@@ -144,7 +141,8 @@
 
 /* Small item content */
 .bento__icon {
-  font-size: 2.8rem;
+  display: flex;
+  align-items: center;
   margin-bottom: 4px;
 }
 
@@ -161,7 +159,7 @@
   line-height: 1.4;
 }
 
-/* Wide item layout — text left, button right */
+/* Wide item layout */
 .bento__wide-inner {
   display: flex;
   align-items: center;
@@ -187,36 +185,6 @@
   flex-shrink: 0;
 }
 
-/* Floating emojis */
-.bento__wide-emojis {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.bento__wide-emojis span {
-  position: absolute;
-  font-size: 2.4rem;
-  opacity: 0.12;
-  animation: float-emoji 6s ease-in-out infinite;
-}
-
-.bento__wide-emojis span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-.bento__wide-emojis span:nth-child(2) { top: 60%; left: 25%; animation-delay: 1.2s; }
-.bento__wide-emojis span:nth-child(3) { top: 20%; left: 55%; animation-delay: 2.4s; }
-.bento__wide-emojis span:nth-child(4) { top: 65%; left: 75%; animation-delay: 3.6s; }
-.bento__wide-emojis span:nth-child(5) { top: 15%; left: 90%; animation-delay: 4.8s; }
-
-@keyframes float-emoji {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(10deg); }
-}
-
 /* Background pattern */
 .bento__bg-pattern {
   position: absolute;
@@ -225,12 +193,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  opacity: 0.12;
   z-index: 1;
-}
-
-.bento__bg-pattern span {
-  font-size: 5rem;
 }
 
 /* ===== Responsive ===== */
@@ -273,5 +236,4 @@
   .bento__item--wide { min-height: 150px; }
   .bento__subtext { font-size: 1.3rem; }
   .bento__cta { padding: 10px 22px; font-size: 1.2rem; }
-  .bento__bg-pattern span { font-size: 3.5rem; }
 }

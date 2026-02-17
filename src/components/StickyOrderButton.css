@@ -5,7 +5,7 @@
   bottom: 30px;
   right: 30px;
   z-index: 900;
-  background-color: #ea8258;
+  background-color: var(--color-dark);
   color: #fff;
   font-family: var(--font-heading);
   font-size: 1.4rem;
@@ -13,7 +13,7 @@
   padding: 16px 32px;
   border-radius: 30px;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 20px rgba(234, 130, 88, 0.4);
+  box-shadow: 0 4px 20px rgba(26, 26, 46, 0.3);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               background-color 0.2s ease;
@@ -29,9 +29,9 @@
 }
 
 .sticky-order:hover {
-  background-color: #d3754f;
+  background-color: var(--color-teal);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(234, 130, 88, 0.5);
+  box-shadow: 0 6px 24px rgba(45, 212, 168, 0.35);
 }
 
 /* Hide on very small screens to not block content */
