@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import './ProductModal.css'
 import ShopifyBuyButton from './ShopifyBuyButton'
 
 const ProductModal = ({ product, onClose }) => {
@@ -8,11 +9,13 @@ const ProductModal = ({ product, onClose }) => {
   // Lock body scroll & stop Lenis when modal opens
   useEffect(() => {
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
     // Escape key to close
     const handleEsc = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handleEsc)
     return () => {
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
       window.removeEventListener('keydown', handleEsc)
     }
   }, [onClose])
@@ -20,19 +23,19 @@ const ProductModal = ({ product, onClose }) => {
   if (!product || !product.gallery) return null
 
   return createPortal(
-    <div className="shop__modal-overlay" onClick={onClose}>
-      <div className="shop__modal" onClick={(e) => e.stopPropagation()}>
-        <button className="shop__modal-close" onClick={onClose}>&times;</button>
-        <div className="shop__modal-grid">
-          <div className="shop__modal-gallery">
-            <div className="shop__modal-main-img">
+    <div className="product-modal-overlay" onClick={onClose}>
+      <div className="product-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="product-modal__close" onClick={onClose}>&times;</button>
+        <div className="product-modal__grid">
+          <div className="product-modal__gallery">
+            <div className="product-modal__main-img">
               <img src={product.gallery[activeImg]} alt={product.galleryLabels[activeImg]} />
             </div>
-            <div className="shop__modal-thumbs">
+            <div className="product-modal__thumbs">
               {product.gallery.map((img, i) => (
                 <button
                   key={i}
-                  className={`shop__modal-thumb ${i === activeImg ? 'shop__modal-thumb--active' : ''}`}
+                  className={`product-modal__thumb ${i === activeImg ? 'product-modal__thumb--active' : ''}`}
                   onClick={() => setActiveImg(i)}
                 >
                   <img src={img} alt={product.galleryLabels[i]} />
@@ -41,11 +44,11 @@ const ProductModal = ({ product, onClose }) => {
               ))}
             </div>
           </div>
-          <div className="shop__modal-info">
-            <h2 className="shop__modal-name">{product.name}</h2>
-            <p className="shop__modal-subtitle">{product.subtitle}</p>
-            <p className="shop__modal-price">{product.price}</p>
-            <ul className="shop__modal-features">
+          <div className="product-modal__info">
+            <h2 className="product-modal__name">{product.name}</h2>
+            <p className="product-modal__subtitle">{product.subtitle}</p>
+            <p className="product-modal__price">{product.price}</p>
+            <ul className="product-modal__features">
               <li>📚 Groep 1 t/m 8 — 8 jaar in één map</li>
               <li>✏️ Ruimte voor tekeningen, foto's & rapporten</li>
               <li>🎨 Speelse illustraties per groep</li>
