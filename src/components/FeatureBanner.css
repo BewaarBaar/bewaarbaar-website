@@ -267,6 +267,11 @@
 }
 
 @media (max-width: 480px) {
-  .bento__heading { font-size: 2rem; }
-  .bento__item { padding: 24px; }
+  .bento__heading { font-size: 1.8rem; }
+  .bento__item { padding: 20px; }
+  .bento__item--large { min-height: 240px; }
+  .bento__item--wide { min-height: 150px; }
+  .bento__subtext { font-size: 1.3rem; }
+  .bento__cta { padding: 10px 22px; font-size: 1.2rem; }
+  .bento__bg-pattern span { font-size: 3.5rem; }
 }

@@ -62,13 +62,17 @@ button {
 /* ===== Scroll Reveal Animations ===== */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(2px);
 }
 
 .scroll-reveal.revealed {
   opacity: 1;
   transform: translateY(0) translateX(0) scale(1);
+  filter: blur(0px);
 }
 
 .scroll-reveal--left {
@@ -89,6 +93,57 @@ button {
 .scroll-reveal--delay-4 { transition-delay: 0.4s; }
 .scroll-reveal--delay-5 { transition-delay: 0.5s; }
 .scroll-reveal--delay-6 { transition-delay: 0.6s; }
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal { opacity: 1; transform: none; filter: none; }
+}
+
+/* ===== Global Button Interactions ===== */
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease,
+              background 0.3s ease,
+              color 0.3s ease;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-2px);
+}
+
+.btn-interactive:active {
+  transform: translateY(0) scale(0.97);
+  transition: transform 0.1s;
+}
+
+/* Ripple effect */
+.btn-interactive::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.btn-interactive:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
 
 /* ===== Cursor Glow Effect ===== */
 .glow-card {

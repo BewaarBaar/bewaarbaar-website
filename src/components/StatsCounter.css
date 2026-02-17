@@ -64,11 +64,8 @@
 }
 
 @media (max-width: 480px) {
-  .stats__number {
-    font-size: 2.2rem;
-  }
-
-  .stats__grid {
-    gap: 24px;
-  }
+  .stats { padding: 30px 16px; }
+  .stats__number { font-size: 2.2rem; }
+  .stats__grid { gap: 20px; }
+  .stats__label { font-size: 1.1rem; }
 }

@@ -3,6 +3,7 @@ import './Shop.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
+import ProductModal from './ProductModal'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
 import mapVoorkant from '../assets/Map_voorkant.png'
@@ -61,54 +62,6 @@ const usps = [
   { icon: '🇳🇱', title: 'Gemaakt in NL', desc: 'Met liefde ontworpen' },
   { icon: '⭐', title: 'Premium kwaliteit', desc: 'Stevig & duurzaam' },
 ]
-
-const ProductModal = ({ product, onClose }) => {
-  const [activeImg, setActiveImg] = useState(0)
-
-  if (!product || !product.gallery) return null
-
-  return (
-    <div className="shop__modal-overlay" onClick={onClose}>
-      <div className="shop__modal" onClick={(e) => e.stopPropagation()}>
-        <button className="shop__modal-close" onClick={onClose}>&times;</button>
-        <div className="shop__modal-grid">
-          <div className="shop__modal-gallery">
-            <div className="shop__modal-main-img">
-              <img src={product.gallery[activeImg]} alt={product.galleryLabels[activeImg]} />
-            </div>
-            <div className="shop__modal-thumbs">
-              {product.gallery.map((img, i) => (
-                <button
-                  key={i}
-                  className={`shop__modal-thumb ${i === activeImg ? 'shop__modal-thumb--active' : ''}`}
-                  onClick={() => setActiveImg(i)}
-                >
-                  <img src={img} alt={product.galleryLabels[i]} />
-                  <span>{product.galleryLabels[i]}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="shop__modal-info">
-            <h2 className="shop__modal-name">{product.name}</h2>
-            <p className="shop__modal-subtitle">{product.subtitle}</p>
-            <p className="shop__modal-price">{product.price}</p>
-            <ul className="shop__modal-features">
-              <li>📚 Groep 1 t/m 8 — 8 jaar in één map</li>
-              <li>✏️ Ruimte voor tekeningen, foto's & rapporten</li>
-              <li>🎨 Speelse illustraties per groep</li>
-              <li>🔒 Stevig ringband systeem</li>
-              <li>🇳🇱 Ontworpen & gedrukt in Nederland</li>
-            </ul>
-            {product.shopifyId && (
-              <ShopifyBuyButton productId={product.shopifyId} />
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 const Shop = () => {
   const sectionRef = useScrollReveal()

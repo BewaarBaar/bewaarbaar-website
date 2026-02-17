@@ -1,50 +1,73 @@
+import { useState } from 'react'
 import './NewArrivals.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useGlowEffect } from '../hooks/useGlowEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
+import ProductModal from './ProductModal'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
-import mapBinnenkant from '../assets/map_binnenkant_sfeer.png'
+import mapBinnenkantSfeer from '../assets/map_binnenkant_sfeer.png'
+import mapVoorkant from '../assets/Map_voorkant.png'
+import mapAchterkant from '../assets/Map_achterkant.png'
+import mapBinnenkant from '../assets/Map_binnenkant.png'
+import mapZijkant from '../assets/Map_zijkant.png'
 
 const products = [
   {
     name: 'Basisschool Bewaarmap',
+    subtitle: 'Van groep 1 t/m groep 8',
     description: 'Organiseer alle schoolherinneringen op een plek met deze praktische bewaarma...',
-    price: '\u20ac39.99',
+    price: '€39,99',
     image: basisschoolImg,
-    hoverImage: mapBinnenkant,
+    hoverImage: mapBinnenkantSfeer,
+    gallery: [mapVoorkant, mapAchterkant, mapBinnenkant, mapZijkant],
+    galleryLabels: ['Voorkant', 'Achterkant', 'Binnenkant', 'Zijkant'],
     badge: null,
     comingSoon: false,
+    shopifyId: '10609642963281',
   },
   {
     name: 'Kinderdagverblijf Bewaarmap',
+    subtitle: 'Alle knutsels op één plek',
     description: 'Binnenkort verkrijgbaar! Bewaar alle mooie knutselwerkjes en herinneringen van het...',
-    price: '\u20ac0.00',
+    price: '€0.00',
     image: kinderdagverblijfImg,
     hoverImage: null,
+    gallery: null,
+    galleryLabels: null,
     comingSoon: true,
+    shopifyId: null,
   },
   {
     name: 'Middelbare School Bewaarmap',
+    subtitle: 'Van brugklas tot diploma',
     description: 'Binnenkort verkrijgbaar! De perfecte plek om diploma\'s, rapporten en bijzondere...',
-    price: '\u20ac0.00',
+    price: '€0.00',
     image: null,
     hoverImage: null,
+    gallery: null,
+    galleryLabels: null,
     comingSoon: true,
+    shopifyId: null,
   },
   {
     name: 'Baby Bewaarmap',
+    subtitle: 'Het eerste levensjaar',
     description: 'Binnenkort verkrijgbaar! Leg alle bijzondere momenten van het eerste levensjaar vast in...',
-    price: '\u20ac0.00',
+    price: '€0.00',
     image: null,
     hoverImage: null,
+    gallery: null,
+    galleryLabels: null,
     comingSoon: true,
+    shopifyId: null,
   },
 ]
 
 const NewArrivals = () => {
   const sectionRef = useScrollReveal()
   const { handleMouseMove: glowMove, handleMouseLeave: glowLeave } = useGlowEffect()
+  const [selectedProduct, setSelectedProduct] = useState(null)
 
   return (
     <section className="new-arrivals" ref={sectionRef}>
@@ -57,7 +80,14 @@ const NewArrivals = () => {
 
       <div className="new-arrivals__products">
         {products.map((product, index) => (
-          <div className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index} onMouseMove={glowMove} onMouseLeave={glowLeave}>
+          <div
+            className={`new-arrivals__product glow-card scroll-reveal scroll-reveal--delay-${index + 1}`}
+            key={index}
+            onMouseMove={glowMove}
+            onMouseLeave={glowLeave}
+            onClick={() => product.gallery && setSelectedProduct(product)}
+            style={{ cursor: product.gallery ? 'pointer' : 'default' }}
+          >
             <div className="new-arrivals__product-image-wrap">
               {product.comingSoon && (
                 <span className="new-arrivals__badge new-arrivals__badge--coming">Coming Soon</span>
@@ -75,6 +105,9 @@ const NewArrivals = () => {
                 }}>
                   <span className="new-arrivals__product-placeholder-emoji">📚</span>
                 </div>
+              )}
+              {product.gallery && (
+                <span className="new-arrivals__view-label">Bekijk details</span>
               )}
             </div>
             <h3 className={`new-arrivals__product-name ${product.comingSoon ? 'new-arrivals__product-name--teal' : ''}`}>
@@ -94,6 +127,11 @@ const NewArrivals = () => {
           </div>
         ))}
       </div>
+
+      {/* Product Modal — same as Shop page */}
+      {selectedProduct && (
+        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+      )}
     </section>
   )
 }

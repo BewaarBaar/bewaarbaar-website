@@ -59,6 +59,7 @@
 .hero__cta {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   background: #fff;
   color: var(--color-dark);
   font-family: var(--font-body);
@@ -67,15 +68,34 @@
   padding: 16px 32px;
   border-radius: 30px;
   letter-spacing: 0.3px;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
   white-space: nowrap;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero__cta:hover {
   background: var(--color-teal);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(45, 212, 168, 0.35);
+}
+
+.hero__cta:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 2px 8px rgba(45, 212, 168, 0.2);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.hero__cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  font-size: 1.3em;
+}
+
+.hero__cta:hover .hero__cta-arrow {
+  transform: translateX(5px);
 }
 
 /* Animated CTA — fade in + slide up */
@@ -135,7 +155,9 @@
 }
 
 @media (max-width: 480px) {
-  .hero { min-height: 350px; }
-  .hero__title { font-size: 1.8rem; }
-  .hero__cta { padding: 12px 24px; font-size: 1.2rem; }
+  .hero { min-height: 320px; }
+  .hero__overlay { padding: 24px 16px; padding-bottom: 32px; gap: 16px; }
+  .hero__title { font-size: 1.7rem; }
+  .hero__cta { padding: 12px 22px; font-size: 1.2rem; }
+  .hero__cta-arrow { font-size: 1.1em; }
 }

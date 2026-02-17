@@ -11,6 +11,15 @@ export function useScrollReveal(options = {}) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Staggered reveal: find siblings with scroll-reveal in same parent grid/flex
+            const parent = entry.target.parentElement
+            if (parent) {
+              const siblings = Array.from(parent.querySelectorAll(':scope > .scroll-reveal'))
+              const index = siblings.indexOf(entry.target)
+              if (index > 0) {
+                entry.target.style.transitionDelay = `${index * 0.1}s`
+              }
+            }
             entry.target.classList.add('revealed')
             observer.unobserve(entry.target)
           }

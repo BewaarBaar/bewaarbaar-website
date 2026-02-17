@@ -54,7 +54,10 @@ const Hero = () => {
           </strong>
         </h1>
         <div ref={magneticRef}>
-          <Link to="/shop" className="hero__cta hero__cta--animated">Bekijk de Collectie</Link>
+          <Link to="/shop" className="hero__cta hero__cta--animated">
+            Bekijk de Collectie
+            <span className="hero__cta-arrow">→</span>
+          </Link>
         </div>
       </div>
     </section>

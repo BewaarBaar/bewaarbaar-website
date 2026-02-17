@@ -19,17 +19,25 @@ import StickyOrderButton from './components/StickyOrderButton'
 import PageTransition from './components/PageTransition'
 import NotFound from './components/NotFound'
 import InstagramFeed from './components/InstagramFeed'
+import SectionDivider from './components/SectionDivider'
 
 function HomePage() {
   return (
     <PageTransition>
       <Hero />
+      <SectionDivider color="var(--color-cream)" variant="soft" />
       <ShopCategories />
+      <SectionDivider color="var(--color-cream)" variant="wave" />
       <NewArrivals />
+      <SectionDivider color="var(--color-cream)" variant="curve" />
       <FeatureBanner />
+      <SectionDivider color="var(--color-cream)" variant="soft" />
       <StatsCounter />
+      <SectionDivider color="var(--color-cream)" variant="wave" />
       <CribStages />
+      <SectionDivider color="var(--color-peach)" variant="curve" />
       <InstagramFeed />
+      <SectionDivider color="var(--color-dark)" variant="soft" />
     </PageTransition>
   )
 }
