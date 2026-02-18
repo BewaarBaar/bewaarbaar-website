@@ -66,7 +66,7 @@ const Footer = () => {
 
       <div className="footer__bottom scroll-reveal">
         <div className="footer__bottom-left">
-          <p className="footer__copyright">&copy; 2025 Bewaarbaar — Met liefde gemaakt in Nederland</p>
+          <p className="footer__copyright">&copy; 2025 Bewaarbaar — Met liefde gemaakt in Nederland · KVK 99621053</p>
         </div>
         <div className="footer__social">
           <a href="https://instagram.com/bewaarbaar" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Instagram">
