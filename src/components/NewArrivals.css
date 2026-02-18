@@ -45,6 +45,12 @@
   aspect-ratio: 1;
   border-radius: 16px;
   overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.scroll-reveal.revealed .new-arrivals__image-swap {
+  clip-path: inset(0 0% 0 0);
 }
 
 .new-arrivals__product-img {
@@ -105,6 +111,19 @@
   flex-direction: column;
   gap: 12px;
 }
+
+/* Staggered text reveal */
+.new-arrivals__featured-info > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.revealed .new-arrivals__featured-info > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.4s; }
+.scroll-reveal.revealed .new-arrivals__featured-info > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.5s; }
+.scroll-reveal.revealed .new-arrivals__featured-info > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.6s; }
+.scroll-reveal.revealed .new-arrivals__featured-info > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.7s; }
 
 .new-arrivals__product-name {
   font-family: var(--font-heading);

@@ -63,6 +63,32 @@
 /* ===== Color Variants ===== */
 .bento__item--dark {
   background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%);
+  overflow: hidden;
+}
+
+/* Animated shimmer on dark card */
+.bento__item--dark::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(45, 212, 168, 0.06) 45%,
+    rgba(45, 212, 168, 0.06) 55%,
+    transparent 60%
+  );
+  animation: bento-shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes bento-shimmer {
+  0%, 100% { transform: translateX(-30%) translateY(-30%); }
+  50% { transform: translateX(30%) translateY(30%); }
 }
 
 .bento__item--mint {
@@ -194,6 +220,16 @@
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   z-index: 1;
+}
+
+.bento__bg-pattern svg:nth-child(1) { animation: icon-breathe 4s ease-in-out infinite 0s; }
+.bento__bg-pattern svg:nth-child(2) { animation: icon-breathe 4s ease-in-out infinite 1s; }
+.bento__bg-pattern svg:nth-child(3) { animation: icon-breathe 4s ease-in-out infinite 2s; }
+.bento__bg-pattern svg:nth-child(4) { animation: icon-breathe 4s ease-in-out infinite 3s; }
+
+@keyframes icon-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
 }
 
 /* ===== Responsive ===== */

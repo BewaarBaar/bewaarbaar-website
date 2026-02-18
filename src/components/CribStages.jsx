@@ -28,6 +28,14 @@ const CribStages = () => {
 
   return (
     <section className="crib-stages animated-gradient noise-texture" ref={sectionRef}>
+      <div className="crib-stages__particles">
+        <div className="crib-stages__particle crib-stages__particle--1" />
+        <div className="crib-stages__particle crib-stages__particle--2" />
+        <div className="crib-stages__particle crib-stages__particle--3" />
+        <div className="crib-stages__particle crib-stages__particle--4" />
+        <div className="crib-stages__particle crib-stages__particle--5" />
+        <div className="crib-stages__particle crib-stages__particle--6" />
+      </div>
       <div className="crib-stages__content scroll-reveal">
         <h2 className="crib-stages__title">Hoe het werkt</h2>
         <p className="crib-stages__desc">
