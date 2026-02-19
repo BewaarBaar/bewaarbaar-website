@@ -1,42 +1,24 @@
 import './Reviews.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const reviews = [
+const testimonials = [
   {
-    name: 'Lisa de Vries',
-    rating: 5,
-    text: 'Wat een prachtig product! Mijn dochter is nu in groep 4 en we vullen de map samen in. Het is echt een fijn ritueel geworden aan het eind van elk schooljaar.',
-    date: 'November 2024',
+    name: 'Laura',
+    role: 'Moeder van twee',
+    text: 'Ik mocht de bewaarmap als een van de eersten testen. De kwaliteit voelt echt premium en de illustraties zijn prachtig. Mijn kinderen willen er zelf ook steeds in bladeren!',
+    tag: 'Testgebruiker',
   },
   {
-    name: 'Mark Jansen',
-    rating: 5,
-    text: 'Als vader van twee kinderen is dit het beste cadeau dat ik ooit heb gegeven. De kwaliteit is top en er is ruimte voor alles: foto\'s, tekeningen, rapporten. Aanrader!',
-    date: 'Oktober 2024',
+    name: 'Daniël',
+    role: 'Vader van Sem (groep 3)',
+    text: 'Eindelijk een mooie plek voor alle losse tekeningen en rapporten. We hadden alles in een doos, maar dit is zoveel leuker om later samen terug te kijken.',
+    tag: 'Testgebruiker',
   },
   {
-    name: 'Sophie Bakker',
-    rating: 5,
-    text: 'Ik had overal losse tekeningen en knutselwerkjes liggen. Nu heeft alles een mooie plek. De illustraties in de map zijn zo lief, echt met aandacht gemaakt.',
-    date: 'September 2024',
-  },
-  {
-    name: 'Ingrid Mulder',
-    rating: 4,
-    text: 'Gekocht als kraamcadeau voor mijn zus. Ze was er zo blij mee! Het is iets wat je echt jaren gebruikt en wat alleen maar waardevoller wordt.',
-    date: 'Augustus 2024',
-  },
-  {
-    name: 'Thomas van Dijk',
-    rating: 5,
-    text: 'Onze zoon gaat volgend jaar naar de middelbare school. We hebben net samen de map doorgebladerd en wat hebben we gelachen. Zo fijn dat we dit hebben!',
-    date: 'December 2024',
-  },
-  {
-    name: 'Emma Visser',
-    rating: 5,
-    text: 'Eindelijk een bewaarmap die er ook nog eens mooi uitziet! Staat prachtig in de boekenkast en de kinderen vinden het leuk om erin te bladeren.',
-    date: 'November 2024',
+    name: 'Femke',
+    role: 'Juf groep 1/2',
+    text: 'Als juf zie ik hoeveel moeite kinderen in hun werkjes stoppen. Fijn dat er nu een product is dat die herinneringen de waarde geeft die ze verdienen.',
+    tag: 'Preview ontvangen',
   },
 ]
 
@@ -44,49 +26,35 @@ const getInitials = (name) => {
   return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()
 }
 
-const Stars = ({ count }) => (
-  <div className="reviews__stars">
-    {Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < count ? 'reviews__star--filled' : 'reviews__star--empty'}>
-        ★
-      </span>
-    ))}
-  </div>
-)
-
 const Reviews = () => {
   const sectionRef = useScrollReveal()
 
   return (
     <section className="reviews" ref={sectionRef}>
       <div className="reviews__header scroll-reveal">
-        <h2 className="reviews__title">Wat ouders zeggen</h2>
+        <span className="reviews__label">Eerste reacties</span>
+        <h2 className="reviews__title">Wat testgebruikers zeggen</h2>
         <p className="reviews__subtitle">
-          Meer dan 500 tevreden ouders gingen je voor
+          We hebben de bewaarmap laten testen door ouders en leerkrachten. Dit zijn hun eerlijke reacties.
         </p>
-        <div className="reviews__avg">
-          <Stars count={5} />
-          <span className="reviews__avg-text">4.9 uit 5 sterren</span>
-        </div>
       </div>
 
       <div className="reviews__grid">
-        {reviews.map((review, index) => (
+        {testimonials.map((testimonial, index) => (
           <div className={`reviews__card scroll-reveal scroll-reveal--delay-${index + 1}`} key={index}>
-            <Stars count={review.rating} />
-            <p className="reviews__card-text">"{review.text}"</p>
+            <p className="reviews__card-text">"{testimonial.text}"</p>
             <div className="reviews__card-footer">
               <div className="reviews__card-author">
-                <span className="reviews__avatar">{getInitials(review.name)}</span>
+                <span className="reviews__avatar">{getInitials(testimonial.name)}</span>
                 <div className="reviews__author-info">
-                  <span className="reviews__card-name">{review.name}</span>
-                  <span className="reviews__verified">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    Geverifieerd
-                  </span>
+                  <span className="reviews__card-name">{testimonial.name}</span>
+                  <span className="reviews__card-role">{testimonial.role}</span>
                 </div>
               </div>
-              <span className="reviews__card-date">{review.date}</span>
+              <span className="reviews__tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                {testimonial.tag}
+              </span>
             </div>
           </div>
         ))}
