@@ -4,6 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import ProductModal from './ProductModal'
+import heroImg from '../assets/basisschool-bewaarmap-happykids.jpg'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
 import mapVoorkant from '../assets/Map_voorkant.png'
@@ -63,29 +64,76 @@ const usps = [
   { icon: '⭐', title: 'Premium kwaliteit', desc: 'Stevig & duurzaam' },
 ]
 
+const cardRotations = ['-2deg', '1.5deg', '-1deg', '2deg']
+
 const Shop = () => {
   const sectionRef = useScrollReveal()
   const { handleMouseMove: tiltMove, handleMouseLeave: tiltLeave } = useTiltEffect(4)
   const [selectedProduct, setSelectedProduct] = useState(null)
 
   return (
-    <section className="shop animated-gradient" ref={sectionRef}>
-      {/* Hero banner */}
-      <div className="shop__hero scroll-reveal">
-        <div className="shop__hero-text">
-          <span className="shop__hero-label">COLLECTIE 2025</span>
-          <h1 className="shop__hero-title">Onze Bewaarmappen</h1>
-          <p className="shop__hero-subtitle">
-            Ontdek onze collectie speciaal ontworpen bewaarmappen voor de mooiste herinneringen!
-          </p>
-        </div>
-        <div className="shop__hero-books">
-          <div className="shop__hero-book-stack">
-            <img src={mapZijkant} alt="Zijkant" className="shop__hero-book shop__hero-book--1" />
-            <img src={mapAchterkant} alt="Achterkant" className="shop__hero-book shop__hero-book--2" />
-            <img src={mapBinnenkant} alt="Binnenkant" className="shop__hero-book shop__hero-book--3" />
-            <img src={mapVoorkant} alt="Voorkant" className="shop__hero-book shop__hero-book--4" />
+    <section className="shop" ref={sectionRef}>
+      {/* Hero met foto */}
+      <div className="shop__hero">
+        <img src={heroImg} alt="" className="shop__hero-img" />
+        <div className="shop__hero-overlay">
+          <div className="shop__hero-text">
+            <span className="shop__hero-label">COLLECTIE 2025</span>
+            <h1 className="shop__hero-title">Onze Bewaarmappen</h1>
+            <p className="shop__hero-subtitle">
+              Ontdek onze collectie speciaal ontworpen bewaarmappen voor de mooiste herinneringen!
+            </p>
           </div>
+        </div>
+      </div>
+
+      {/* Product cards die over de hero schuiven */}
+      <div className="shop__cards-section">
+        <div className="shop__grid">
+          {products.map((product, index) => (
+            <div
+              className={`shop__product shop__product--rotate-${index + 1} scroll-reveal scroll-reveal--delay-${index + 1}`}
+              key={index}
+              style={{ '--card-rotation': cardRotations[index] }}
+              onMouseMove={!product.comingSoon ? tiltMove : undefined}
+              onMouseLeave={!product.comingSoon ? tiltLeave : undefined}
+              onClick={() => product.gallery && setSelectedProduct(product)}
+            >
+              <div className="shop__product-image-wrap">
+                {product.comingSoon && (
+                  <span className="shop__product-badge">Komt binnenkort</span>
+                )}
+                {product.image ? (
+                  <div className="shop__image-swap">
+                    <img src={product.image} alt={product.name} className="shop__product-image shop__product-image--front" />
+                    {product.hoverImage && (
+                      <img src={product.hoverImage} alt={`${product.name} binnenkant`} className="shop__product-image shop__product-image--back" />
+                    )}
+                  </div>
+                ) : (
+                  <div className="shop__product-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                    </svg>
+                  </div>
+                )}
+                {product.gallery && (
+                  <span className="shop__product-view-label">Bekijk details</span>
+                )}
+              </div>
+              <div className="shop__product-info">
+                <h3 className="shop__product-name">{product.name}</h3>
+                <p className="shop__product-subtitle">{product.subtitle}</p>
+                <p className="shop__product-price">
+                  {product.comingSoon ? '' : product.price}
+                </p>
+                {!product.comingSoon && product.shopifyId && (
+                  <ShopifyBuyButton productId={product.shopifyId} />
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -101,61 +149,6 @@ const Shop = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Filter bar */}
-      <div className="shop__filter">
-        <div className="shop__filter-left">
-          <span className="shop__filter-count">{products.length} producten</span>
-        </div>
-        <div className="shop__filter-right">
-          <span className="shop__filter-sort">Sorteren: Uitgelicht</span>
-        </div>
-      </div>
-
-      {/* Product grid */}
-      <div className="shop__grid">
-        {products.map((product, index) => (
-          <div
-            className={`shop__product scroll-reveal scroll-reveal--delay-${index + 1}`}
-            key={index}
-            onMouseMove={!product.comingSoon ? tiltMove : undefined}
-            onMouseLeave={!product.comingSoon ? tiltLeave : undefined}
-            onClick={() => product.gallery && setSelectedProduct(product)}
-            style={{ cursor: product.gallery ? 'pointer' : 'default' }}
-          >
-            <div className="shop__product-image-wrap">
-              {product.comingSoon && (
-                <span className="shop__product-badge">Komt binnenkort</span>
-              )}
-              {product.image ? (
-                <div className="shop__image-swap">
-                  <img src={product.image} alt={product.name} className="shop__product-image shop__product-image--front" />
-                  {product.hoverImage && (
-                    <img src={product.hoverImage} alt={`${product.name} binnenkant`} className="shop__product-image shop__product-image--back" />
-                  )}
-                </div>
-              ) : (
-                <div className="shop__product-placeholder">
-                  <span className="shop__product-placeholder-emoji">📚</span>
-                </div>
-              )}
-              {product.gallery && (
-                <span className="shop__product-view-label">Bekijk details</span>
-              )}
-            </div>
-            <div className="shop__product-info">
-              <h3 className="shop__product-name">{product.name}</h3>
-              <p className="shop__product-subtitle">{product.subtitle}</p>
-              <p className="shop__product-price">
-                {product.comingSoon ? '' : product.price}
-              </p>
-              {!product.comingSoon && product.shopifyId && (
-                <ShopifyBuyButton productId={product.shopifyId} />
-              )}
-            </div>
-          </div>
-        ))}
       </div>
 
       {/* Product Modal */}
