@@ -3,6 +3,7 @@
 .about {
   background-color: var(--color-cream);
   overflow: hidden;
+  padding-top: 80px;
 }
 
 /* ----- Hero intro ----- */

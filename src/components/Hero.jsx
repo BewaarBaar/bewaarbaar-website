@@ -3,7 +3,8 @@ import './Hero.css'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useMagneticEffect } from '../hooks/useMagneticEffect'
-import heroBg from '../assets/basisschool-bewaarmap-happykids.jpg'
+import heroBg from '../assets/Bewaarbaar_Hero_Website3.jpg'
+import heroBgMobile from '../assets/Bewaarbaar_Hero_Mobile.jpg'
 
 const SplitText = ({ children, className = '', delay = 0 }) => {
   const words = children.split(' ')
@@ -41,11 +42,12 @@ const Hero = () => {
 
   return (
     <section className="hero" ref={sectionRef}>
-      <div
-        className="hero__bg"
-        ref={bgRef}
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      <div className="hero__bg" ref={bgRef}>
+        <picture>
+          <source media="(max-width: 768px)" srcSet={heroBgMobile} />
+          <img src={heroBg} alt="" className="hero__bg-img" />
+        </picture>
+      </div>
       <div className="hero__overlay">
         <h1 className="hero__title">
           <SplitText delay={0.3}>Voor alles wat je niet wilt vergeten.</SplitText>
