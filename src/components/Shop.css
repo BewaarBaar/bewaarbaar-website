@@ -290,43 +290,47 @@
 
 @media (max-width: 768px) {
   .shop__hero {
-    height: 45vh;
-    min-height: 300px;
+    height: 50vh;
+    min-height: 360px;
   }
   .shop__hero-text {
-    padding: 30px 24px;
+    padding: 30px 24px 90px;
   }
-  .shop__hero-title { font-size: 2.6rem; }
-  .shop__hero-subtitle { font-size: 1.3rem; }
+  .shop__hero-title { font-size: 2.2rem; }
+  .shop__hero-subtitle { font-size: 1.2rem; }
   .shop__cards-section {
-    margin-top: -80px;
-    padding: 0 20px 40px;
+    margin-top: -70px;
+    padding: 0 16px 40px;
   }
   .shop__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
   .shop__product {
-    padding: 10px;
-    border-radius: 20px;
+    padding: 8px;
+    border-radius: 18px;
   }
   .shop__product-image-wrap {
-    border-radius: 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
   }
+  .shop__product-name { font-size: 1.3rem; }
+  .shop__product-subtitle { font-size: 1.1rem; }
+  .shop__product-price { font-size: 1.2rem; }
 }
 
 @media (max-width: 480px) {
   .shop__hero {
-    height: 40vh;
-    min-height: 260px;
+    height: 45vh;
+    min-height: 300px;
   }
   .shop__hero-text {
-    padding: 24px 16px;
+    padding: 24px 16px 80px;
     gap: 6px;
   }
-  .shop__hero-title { font-size: 2rem; }
-  .shop__hero-subtitle { font-size: 1.2rem; }
-  .shop__hero-label { font-size: 1rem; }
+  .shop__hero-title { font-size: 1.8rem; }
+  .shop__hero-subtitle { font-size: 1.1rem; }
+  .shop__hero-label { font-size: 0.9rem; }
   .shop__cards-section {
     margin-top: -60px;
     padding: 0 12px 30px;
@@ -336,22 +340,23 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    gap: 12px;
+    gap: 10px;
     scrollbar-width: none;
   }
   .shop__grid::-webkit-scrollbar { display: none; }
   .shop__product {
-    min-width: 220px;
-    max-width: 250px;
+    min-width: 180px;
+    max-width: 200px;
     flex-shrink: 0;
     scroll-snap-align: start;
-    padding: 10px;
+    padding: 8px;
+    border-radius: 16px;
     transform: rotate(0deg);
   }
   .shop__product:hover {
     transform: rotate(0deg) translateY(-4px);
   }
-  .shop__product-name { font-size: 1.3rem; }
-  .shop__product-subtitle { font-size: 1.1rem; }
-  .shop__product-price { font-size: 1.2rem; }
+  .shop__product-name { font-size: 1.2rem; }
+  .shop__product-subtitle { font-size: 1rem; }
+  .shop__product-price { font-size: 1.1rem; }
 }
