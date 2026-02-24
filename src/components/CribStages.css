@@ -219,11 +219,14 @@
   }
   .crib-stages__grid::-webkit-scrollbar { display: none; }
   .crib-stages__stage {
-    min-width: 240px;
-    max-width: 260px;
+    min-width: 220px;
+    max-width: 250px;
     flex-shrink: 0;
     scroll-snap-align: start;
+    padding: 24px 16px;
   }
+  .crib-stages__label { font-size: 1.7rem; }
+  .crib-stages__step-desc { font-size: 1.2rem; }
 }
 
 @media (max-width: 480px) {

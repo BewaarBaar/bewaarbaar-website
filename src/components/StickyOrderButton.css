@@ -34,12 +34,20 @@
   box-shadow: 0 6px 24px rgba(45, 212, 168, 0.35);
 }
 
-/* Hide on very small screens to not block content */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .sticky-order {
     bottom: 20px;
-    right: 20px;
-    padding: 14px 24px;
-    font-size: 1.3rem;
+    right: 16px;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticky-order {
+    bottom: 16px;
+    right: 12px;
+    padding: 10px 18px;
+    font-size: 1.1rem;
   }
 }

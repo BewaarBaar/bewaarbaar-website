@@ -7,8 +7,12 @@ const StickyOrderButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button after scrolling past the hero (roughly 500px)
-      setVisible(window.scrollY > 500)
+      const scrollY = window.scrollY
+      const docHeight = document.documentElement.scrollHeight
+      const winHeight = window.innerHeight
+      // Show after scrolling past the hero, hide near footer
+      const nearBottom = scrollY + winHeight > docHeight - 300
+      setVisible(scrollY > 500 && !nearBottom)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })

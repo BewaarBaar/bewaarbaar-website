@@ -101,6 +101,15 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+            <Link
+              to="/contact"
+              className={`tubelight-nav__mobile-link ${
+                location.pathname === '/contact' ? 'tubelight-nav__mobile-link--active' : ''
+              }`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

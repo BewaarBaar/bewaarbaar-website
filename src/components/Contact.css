@@ -235,9 +235,12 @@
   }
   .contact__info::-webkit-scrollbar { display: none; }
   .contact__info-card {
-    min-width: 220px;
+    min-width: 200px;
     flex-shrink: 0;
     scroll-snap-align: start;
+  }
+  .contact__info-card p {
+    font-size: 1.15rem;
   }
   .contact__form { padding: 24px; }
   .contact__form-row { grid-template-columns: 1fr; }
