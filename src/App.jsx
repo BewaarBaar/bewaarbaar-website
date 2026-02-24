@@ -19,6 +19,9 @@ import Reviews from './components/Reviews'
 import StickyOrderButton from './components/StickyOrderButton'
 import PageTransition from './components/PageTransition'
 import NotFound from './components/NotFound'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import Terms from './components/Terms'
+import CookieBanner from './components/CookieBanner'
 
 function HomePage() {
   return (
@@ -53,6 +56,8 @@ function AnimatedRoutes() {
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+        <Route path="/voorwaarden" element={<PageTransition><Terms /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
@@ -90,6 +95,7 @@ function App() {
       </main>
       <Footer />
       <StickyOrderButton />
+      <CookieBanner />
     </BrowserRouter>
   )
 }

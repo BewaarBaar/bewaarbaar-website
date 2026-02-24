@@ -157,30 +157,13 @@
   align-items: center;
   border-radius: 50%;
   transition: color 0.2s, background 0.2s;
-  background: none;
-  border: none;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .tubelight-nav__cart:hover {
   color: var(--color-teal);
   background: rgba(45, 212, 168, 0.06);
-}
-
-.tubelight-nav__cart-count {
-  position: absolute;
-  top: -2px;
-  right: -4px;
-  background: var(--color-teal);
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 700;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ===== Hamburger (hidden on desktop) ===== */

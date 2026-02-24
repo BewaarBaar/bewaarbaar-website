@@ -1,9 +1,38 @@
+import { useState } from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const Footer = () => {
   const sectionRef = useScrollReveal()
+  const [email, setEmail] = useState('')
+  const [newsletterStatus, setNewsletterStatus] = useState(null) // 'success' | 'error' | 'loading'
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault()
+    if (!email) return
+    setNewsletterStatus('loading')
+    try {
+      const res = await fetch('https://formspree.io/f/mnjbjgrp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          _subject: 'Nieuwe nieuwsbrief aanmelding',
+          type: 'newsletter'
+        })
+      })
+      if (res.ok) {
+        setNewsletterStatus('success')
+        setEmail('')
+        setTimeout(() => setNewsletterStatus(null), 5000)
+      } else {
+        setNewsletterStatus('error')
+      }
+    } catch {
+      setNewsletterStatus('error')
+    }
+  }
 
   return (
     <footer className="footer" ref={sectionRef}>
@@ -25,14 +54,34 @@ const Footer = () => {
           <p className="footer__subtext">
             Meld je aan voor updates over nieuwe bewaarmappen, tips en meer!
           </p>
-          <form className="footer__form" onSubmit={(e) => e.preventDefault()}>
+          <form className="footer__form" onSubmit={handleNewsletterSubmit}>
             <input
               type="email"
               placeholder="Je e-mailadres"
               className="footer__input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={newsletterStatus === 'loading'}
             />
-            <button type="submit" className="footer__form-btn btn-interactive">Aanmelden</button>
+            <button
+              type="submit"
+              className="footer__form-btn btn-interactive"
+              disabled={newsletterStatus === 'loading'}
+            >
+              {newsletterStatus === 'loading' ? '...' : 'Aanmelden'}
+            </button>
           </form>
+          {newsletterStatus === 'success' && (
+            <p className="footer__newsletter-msg footer__newsletter-msg--success">
+              Bedankt voor je aanmelding!
+            </p>
+          )}
+          {newsletterStatus === 'error' && (
+            <p className="footer__newsletter-msg footer__newsletter-msg--error">
+              Er ging iets mis. Probeer het opnieuw.
+            </p>
+          )}
         </div>
 
         <div className="footer__links">
@@ -55,14 +104,59 @@ const Footer = () => {
             <h3 className="footer__links-title">Klantenservice</h3>
             <ul>
               <li><Link to="/faq" className="footer__link">Veelgestelde Vragen</Link></li>
-              <li><Link to="/contact" className="footer__link">Verzending & Retour</Link></li>
-              <li><Link to="/faq" className="footer__link">Privacybeleid</Link></li>
+              <li><Link to="/faq" className="footer__link">Verzending & Retour</Link></li>
+              <li><Link to="/privacy" className="footer__link">Privacybeleid</Link></li>
+              <li><Link to="/voorwaarden" className="footer__link">Algemene Voorwaarden</Link></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="footer__divider" />
+
+      {/* Payment methods */}
+      <div className="footer__payments scroll-reveal">
+        <span className="footer__payments-label">Veilig betalen met</span>
+        <div className="footer__payments-icons">
+          {/* iDEAL */}
+          <div className="footer__payment-icon" title="iDEAL">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="4" fill="#fff"/>
+              <text x="19" y="16" textAnchor="middle" fontFamily="Arial,sans-serif" fontSize="9" fontWeight="bold" fill="#CC0066">iDEAL</text>
+            </svg>
+          </div>
+          {/* Visa */}
+          <div className="footer__payment-icon" title="Visa">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="4" fill="#fff"/>
+              <text x="19" y="16" textAnchor="middle" fontFamily="Arial,sans-serif" fontSize="9" fontWeight="bold" fill="#1A1F71">VISA</text>
+            </svg>
+          </div>
+          {/* Mastercard */}
+          <div className="footer__payment-icon" title="Mastercard">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="4" fill="#fff"/>
+              <circle cx="15" cy="12" r="6" fill="#EB001B" opacity="0.9"/>
+              <circle cx="23" cy="12" r="6" fill="#F79E1B" opacity="0.9"/>
+            </svg>
+          </div>
+          {/* Bancontact */}
+          <div className="footer__payment-icon" title="Bancontact">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="4" fill="#fff"/>
+              <rect x="7" y="5" width="12" height="14" rx="2" fill="#005498"/>
+              <rect x="19" y="5" width="12" height="14" rx="2" fill="#FFD800"/>
+            </svg>
+          </div>
+          {/* Apple Pay */}
+          <div className="footer__payment-icon" title="Apple Pay">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="4" fill="#000"/>
+              <text x="19" y="16" textAnchor="middle" fontFamily="Arial,sans-serif" fontSize="8" fontWeight="600" fill="#fff"> Pay</text>
+            </svg>
+          </div>
+        </div>
+      </div>
 
       <div className="footer__bottom scroll-reveal">
         <div className="footer__bottom-left">
