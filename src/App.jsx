@@ -22,6 +22,7 @@ import NotFound from './components/NotFound'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Terms from './components/Terms'
 import CookieBanner from './components/CookieBanner'
+import ProductDetail from './components/ProductDetail'
 
 function HomePage() {
   return (
@@ -53,6 +54,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<PageTransition><Shop /></PageTransition>} />
+        <Route path="/shop/:slug" element={<PageTransition><ProductDetail /></PageTransition>} />
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />

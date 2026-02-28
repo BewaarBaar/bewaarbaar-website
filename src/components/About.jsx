@@ -42,7 +42,7 @@ const About = () => {
           </p>
         </div>
         <div className="about__story-image scroll-reveal scroll-reveal--right">
-          <img src={basisschoolImg} alt="De grote basisschool bewaarmap" />
+          <img src={basisschoolImg} alt="De grote basisschool bewaarmap" loading="lazy" />
         </div>
       </div>
 

@@ -1,61 +1,12 @@
 import { useState } from 'react'
 import './Shop.css'
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import ProductModal from './ProductModal'
 import heroImg from '../assets/basisschool-bewaarmap-happykids.jpg'
-import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
-import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
-import mapVoorkant from '../assets/Map_voorkant.png'
-import mapAchterkant from '../assets/Map_achterkant.png'
-import mapBinnenkant from '../assets/Map_binnenkant.png'
-import mapZijkant from '../assets/Map_zijkant.png'
-import mapBinnenkantSfeer from '../assets/map_binnenkant_sfeer.png'
-
-const products = [
-  {
-    name: 'De Grote Basisschool Bewaarmap',
-    subtitle: 'Van groep 1 t/m groep 8',
-    price: '€39,99',
-    image: basisschoolImg,
-    hoverImage: mapBinnenkantSfeer,
-    gallery: [mapVoorkant, mapAchterkant, mapBinnenkant, mapZijkant],
-    galleryLabels: ['Voorkant', 'Achterkant', 'Binnenkant', 'Zijkant'],
-    comingSoon: false,
-    shopifyId: '10609642963281',
-  },
-  {
-    name: 'Kinderdagverblijf Bewaarmap',
-    subtitle: 'Alle knutsels op één plek',
-    price: '€34,99',
-    image: kinderdagverblijfImg,
-    hoverImage: null,
-    gallery: null,
-    comingSoon: true,
-    shopifyId: null,
-  },
-  {
-    name: 'Middelbare School Bewaarmap',
-    subtitle: 'Van brugklas tot diploma',
-    price: '€39,99',
-    image: null,
-    hoverImage: null,
-    gallery: null,
-    comingSoon: true,
-    shopifyId: null,
-  },
-  {
-    name: 'Baby Bewaarmap',
-    subtitle: 'Het eerste levensjaar',
-    price: '€34,99',
-    image: null,
-    hoverImage: null,
-    gallery: null,
-    comingSoon: true,
-    shopifyId: null,
-  },
-]
+import products from '../data/products'
 
 const usps = [
   { icon: '🎁', title: 'Perfect cadeau', desc: 'Voor elke ouder' },
@@ -105,9 +56,9 @@ const Shop = () => {
                 )}
                 {product.image ? (
                   <div className="shop__image-swap">
-                    <img src={product.image} alt={product.name} className="shop__product-image shop__product-image--front" />
+                    <img src={product.image} alt={product.name} className="shop__product-image shop__product-image--front" loading="lazy" />
                     {product.hoverImage && (
-                      <img src={product.hoverImage} alt={`${product.name} binnenkant`} className="shop__product-image shop__product-image--back" />
+                      <img src={product.hoverImage} alt={`${product.name} binnenkant`} className="shop__product-image shop__product-image--back" loading="lazy" />
                     )}
                   </div>
                 ) : (
@@ -123,7 +74,9 @@ const Shop = () => {
                 )}
               </div>
               <div className="shop__product-info">
-                <h3 className="shop__product-name">{product.name}</h3>
+                <h3 className="shop__product-name">
+                  <Link to={`/shop/${product.slug}`} className="shop__product-link">{product.name}</Link>
+                </h3>
                 <p className="shop__product-subtitle">{product.subtitle}</p>
                 <p className="shop__product-price">
                   {product.comingSoon ? '' : product.price}

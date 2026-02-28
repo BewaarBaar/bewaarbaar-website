@@ -170,6 +170,17 @@
   }
   .new-arrivals__product-name { font-size: 2.2rem; }
   .new-arrivals__product-price { font-size: 2rem; }
+
+  /* Disable clip-path and opacity animations on mobile to prevent blank space */
+  .new-arrivals__image-swap {
+    clip-path: none;
+    transition: none;
+  }
+  .new-arrivals__featured-info > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 480px) {
