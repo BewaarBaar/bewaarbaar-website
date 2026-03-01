@@ -115,7 +115,7 @@ const Footer = () => {
       <div className="footer__divider" />
 
       {/* Payment methods */}
-      <div className="footer__payments scroll-reveal">
+      <div className="footer__payments">
         <span className="footer__payments-label">Veilig betalen met</span>
         <div className="footer__payments-icons">
           {/* iDEAL */}
@@ -158,7 +158,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer__bottom scroll-reveal">
+      <div className="footer__bottom">
         <div className="footer__bottom-left">
           <p className="footer__copyright">&copy; 2025 Bewaarbaar — Met liefde gemaakt in Nederland · KVK 99621053</p>
         </div>
