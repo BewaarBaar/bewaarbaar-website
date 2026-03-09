@@ -40,10 +40,6 @@ const faqs = [
         a: 'Bestellingen worden binnen 1-2 werkdagen verzonden. De levertijd is daarna 1-3 werkdagen binnen Nederland. Verzending naar Belgi\u00eb duurt 2-4 werkdagen.'
       },
       {
-        q: 'Wat zijn de verzendkosten?',
-        a: 'Verzending binnen Nederland is gratis bij bestellingen boven de \u20AC30. Voor bestellingen onder de \u20AC30 betaal je \u20AC4,95 verzendkosten. Verzending naar Belgi\u00eb kost \u20AC6,95.'
-      },
-      {
         q: 'Kan ik mijn bestelling retourneren?',
         a: 'Ja, je hebt 14 dagen bedenktijd. Als de bewaarmap ongebruikt en in originele verpakking is, kun je deze retourneren. Neem contact met ons op via het contactformulier.'
       },
