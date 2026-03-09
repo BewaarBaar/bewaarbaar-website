@@ -12,7 +12,7 @@ const faqs = [
       },
       {
         q: 'Welk formaat heeft de bewaarmap?',
-        a: 'De bewaarmap is A4-formaat en werkt met een 4-rings mechanisme. Zo past al het schoolwerk er makkelijk in en kun je ook losse plastic hoesjes toevoegen.'
+        a: 'De bewaarmap is A4-formaat en werkt met een 2-rings mechanisme. Zo past al het schoolwerk er makkelijk in en kun je ook losse plastic hoesjes toevoegen.'
       },
       {
         q: 'Is de bewaarmap een invulboek?',
@@ -24,7 +24,7 @@ const faqs = [
       },
       {
         q: 'Kan ik extra hoesjes of pagina\u2019s toevoegen?',
-        a: 'Ja! Dankzij het 4-rings mechanisme kun je eenvoudig extra plastic hoesjes of insteekhoezen toevoegen. Zo heb je altijd genoeg ruimte voor al het schoolwerk.'
+        a: 'Ja! Dankzij het 2-rings mechanisme kun je eenvoudig extra plastic hoesjes of insteekhoezen toevoegen. Zo heb je altijd genoeg ruimte voor al het schoolwerk.'
       },
       {
         q: 'Hoe groot is de bewaarmap precies?',
