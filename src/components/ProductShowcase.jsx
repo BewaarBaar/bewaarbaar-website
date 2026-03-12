@@ -72,7 +72,7 @@ const ProductShowcase = () => {
         {/* Info */}
         <div className="product-showcase__info">
           <h3 className="product-showcase__product-name">De Grote Basisschool Bewaarmap</h3>
-          <p className="product-showcase__price">&euro;39,99</p>
+          <p className="product-showcase__price">&euro;39,95</p>
           <p className="product-showcase__desc">
             Eén map voor alle herinneringen van de basisschool. Van het eerste knutselwerkje in groep 1 tot het afscheidsdiploma in groep 8.
           </p>
