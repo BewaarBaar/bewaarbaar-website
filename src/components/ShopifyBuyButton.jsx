@@ -54,7 +54,7 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
                 description: false,
               },
               text: {
-                button: "Toevoegen"
+                button: "Toevoegen aan winkelmandje"
               },
               googleFonts: ["Montserrat"]
             },

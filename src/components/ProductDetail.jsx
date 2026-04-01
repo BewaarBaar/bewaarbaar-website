@@ -83,7 +83,11 @@ const ProductDetail = () => {
           <h1 className="product-detail__name">{product.name}</h1>
           <p className="product-detail__subtitle">{product.subtitle}</p>
           <p className="product-detail__price">{product.price}</p>
-          <p className="product-detail__desc">{product.longDescription}</p>
+          <div className="product-detail__desc">
+            {product.longDescription.split('\n\n').map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
 
           <ul className="product-detail__features">
             {product.features.map((feature, i) => (
