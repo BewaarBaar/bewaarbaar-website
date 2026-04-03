@@ -146,37 +146,127 @@
   line-height: 1.7;
 }
 
-.product-detail__features {
+/* Closing text */
+.product-detail__closing {
+  font-size: 1.4rem;
+  color: var(--color-dark);
+  font-weight: 600;
+  line-height: 1.7;
+  font-style: italic;
+  padding: 16px 0 4px;
+}
+
+.product-detail__closing p + p {
+  margin-top: 4px;
+}
+
+/* Accordion */
+.product-detail__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pd-accordion {
+  border-top: 1px solid #e0ddd8;
+}
+
+.pd-accordion:last-child {
+  border-bottom: 1px solid #e0ddd8;
+}
+
+.pd-accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  transition: color 0.2s;
+}
+
+.pd-accordion__trigger:hover {
+  color: var(--color-teal-dark);
+}
+
+.pd-accordion__trigger svg {
+  flex-shrink: 0;
+  color: var(--color-teal);
+  transition: transform 0.3s ease;
+}
+
+.pd-accordion__icon-v {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pd-accordion__icon-v--open {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.pd-accordion__body {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pd-accordion__inner {
+  padding: 0 4px 20px;
+}
+
+.pd-accordion__text {
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.pd-accordion__list {
   list-style: none;
   padding: 0;
-  margin: 8px 0;
+  margin: 8px 0 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.product-detail__features li {
-  font-size: 1.35rem;
-  color: #444;
-  padding-left: 28px;
+.pd-accordion__list li {
+  font-size: 1.25rem;
+  color: #555;
+  padding-left: 24px;
   position: relative;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-.product-detail__features li::before {
-  content: '\2713';
+.pd-accordion__list li::before {
+  content: '\2022';
   position: absolute;
   left: 0;
   color: var(--color-teal);
   font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.pd-accordion__list--check li::before {
+  content: '\2713';
   font-size: 1.2rem;
 }
 
+/* Shipping */
 .product-detail__shipping {
   font-size: 1.2rem;
   color: #666;
-  margin-top: 16px;
-  margin-bottom: 4px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .product-detail__buy {

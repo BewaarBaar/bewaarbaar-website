@@ -1,9 +1,40 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import './ProductDetail.css'
 import { getProductBySlug } from '../data/products'
 import ShopifyBuyButton from './ShopifyBuyButton'
 import ProductModal from './ProductModal'
+
+const Accordion = ({ title, children }) => {
+  const [open, setOpen] = useState(false)
+  const contentRef = useRef(null)
+  const [height, setHeight] = useState(0)
+
+  const toggle = useCallback(() => setOpen(prev => !prev), [])
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(open ? contentRef.current.scrollHeight : 0)
+    }
+  }, [open])
+
+  return (
+    <div className={`pd-accordion ${open ? 'pd-accordion--open' : ''}`}>
+      <button className="pd-accordion__trigger" onClick={toggle} aria-expanded={open}>
+        <span>{title}</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19" className={`pd-accordion__icon-v ${open ? 'pd-accordion__icon-v--open' : ''}`} />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </button>
+      <div className="pd-accordion__body" style={{ height: `${height}px` }}>
+        <div ref={contentRef} className="pd-accordion__inner">
+          {children}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const ProductDetail = () => {
   const { slug } = useParams()
@@ -89,14 +120,52 @@ const ProductDetail = () => {
             ))}
           </div>
 
-          <ul className="product-detail__features">
-            {product.features.map((feature, i) => (
-              <li key={i}>{feature}</li>
-            ))}
-          </ul>
+          {/* Collapsible sections */}
+          {product.sections && (
+            <div className="product-detail__sections">
+              {product.sections.map((section, i) => (
+                <Accordion key={i} title={section.title}>
+                  {section.intro && <p className="pd-accordion__text">{section.intro}</p>}
+                  {section.items && (
+                    <ul className="pd-accordion__list">
+                      {section.items.map((item, j) => (
+                        <li key={j}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.text && section.text.split('\n').map((line, j) => (
+                    <p key={j} className="pd-accordion__text">{line}</p>
+                  ))}
+                </Accordion>
+              ))}
+            </div>
+          )}
 
+          {/* Closing text */}
+          {product.closingText && (
+            <div className="product-detail__closing">
+              {product.closingText.split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
+          )}
+
+          {/* Kenmerken in accordion */}
+          <Accordion title="Kenmerken">
+            <ul className="pd-accordion__list pd-accordion__list--check">
+              {product.features.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+          </Accordion>
+
+          {/* Shipping info */}
           {!product.comingSoon && (
-            <p className="product-detail__shipping">📦 Verzending €3,95 — Gratis vanaf €50</p>
+            <div className="product-detail__shipping">
+              {(product.shippingLines || ['📦 Verzending €3,95 — Gratis vanaf €50']).map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
           )}
 
           {!product.comingSoon && product.shopifyId ? (

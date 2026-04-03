@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import './Shop.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
-import ProductModal from './ProductModal'
 import heroImg from '../assets/basisschool-bewaarmap-happykids.jpg'
 import products from '../data/products'
 
@@ -20,7 +18,7 @@ const cardRotations = ['-2deg', '1.5deg', '-1deg', '2deg']
 const Shop = () => {
   const sectionRef = useScrollReveal()
   const { handleMouseMove: tiltMove, handleMouseLeave: tiltLeave } = useTiltEffect(4)
-  const [selectedProduct, setSelectedProduct] = useState(null)
+  const navigate = useNavigate()
 
   return (
     <section className="shop" ref={sectionRef}>
@@ -45,10 +43,10 @@ const Shop = () => {
             <div
               className={`shop__product shop__product--rotate-${index + 1} scroll-reveal scroll-reveal--delay-${index + 1}`}
               key={index}
-              style={{ '--card-rotation': cardRotations[index] }}
+              style={{ '--card-rotation': cardRotations[index], cursor: 'pointer' }}
               onMouseMove={!product.comingSoon ? tiltMove : undefined}
               onMouseLeave={!product.comingSoon ? tiltLeave : undefined}
-              onClick={() => product.gallery && setSelectedProduct(product)}
+              onClick={() => navigate(`/shop/${product.slug}`)}
             >
               <div className="shop__product-image-wrap">
                 {product.comingSoon && (
@@ -104,10 +102,6 @@ const Shop = () => {
         </div>
       </div>
 
-      {/* Product Modal */}
-      {selectedProduct && (
-        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-      )}
     </section>
   )
 }
