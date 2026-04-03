@@ -36,6 +36,10 @@ const faqs = [
     category: 'Bestellen & verzending',
     questions: [
       {
+        q: 'Wat zijn de verzendkosten?',
+        a: 'Verzending kost \u20AC3,95. Bij bestellingen vanaf \u20AC50 is de verzending gratis. Bestellingen worden binnen 1-2 werkdagen verzonden en de levertijd is daarna 1-3 werkdagen binnen Nederland.'
+      },
+      {
         q: 'Hoe lang duurt de verzending?',
         a: 'Bestellingen worden binnen 1-2 werkdagen verzonden. De levertijd is daarna 1-3 werkdagen binnen Nederland. Verzending naar Belgi\u00eb duurt 2-4 werkdagen.'
       },

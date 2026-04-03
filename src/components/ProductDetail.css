@@ -172,6 +172,13 @@
   font-size: 1.2rem;
 }
 
+.product-detail__shipping {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
 .product-detail__buy {
   margin-top: 8px;
 }

@@ -95,6 +95,10 @@ const ProductDetail = () => {
             ))}
           </ul>
 
+          {!product.comingSoon && (
+            <p className="product-detail__shipping">📦 Verzending €3,95 — Gratis vanaf €50</p>
+          )}
+
           {!product.comingSoon && product.shopifyId ? (
             <div className="product-detail__buy">
               <ShopifyBuyButton productId={product.shopifyId} />
