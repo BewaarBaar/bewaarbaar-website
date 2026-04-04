@@ -3,10 +3,9 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import './ProductDetail.css'
 import { getProductBySlug } from '../data/products'
 import ShopifyBuyButton from './ShopifyBuyButton'
-import ProductModal from './ProductModal'
 
-const Accordion = ({ title, children }) => {
-  const [open, setOpen] = useState(false)
+const Accordion = ({ title, children, defaultOpen = false }) => {
+  const [open, setOpen] = useState(defaultOpen)
   const contentRef = useRef(null)
   const [height, setHeight] = useState(0)
 
@@ -40,7 +39,6 @@ const ProductDetail = () => {
   const { slug } = useParams()
   const product = getProductBySlug(slug)
   const [activeImg, setActiveImg] = useState(0)
-  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     if (product) {
@@ -74,11 +72,7 @@ const ProductDetail = () => {
         {/* Image gallery */}
         <div className="product-detail__gallery">
           {mainImage ? (
-            <div
-              className="product-detail__main-img"
-              onClick={() => product.gallery && setShowModal(true)}
-              style={product.gallery ? { cursor: 'pointer' } : undefined}
-            >
+            <div className="product-detail__main-img">
               <img src={mainImage} alt={product.gallery ? product.galleryLabels[activeImg] : product.name} loading="lazy" />
             </div>
           ) : (
@@ -124,7 +118,7 @@ const ProductDetail = () => {
           {product.sections && (
             <div className="product-detail__sections">
               {product.sections.map((section, i) => (
-                <Accordion key={i} title={section.title}>
+                <Accordion key={i} title={section.title} defaultOpen={i === 0}>
                   {section.intro && <p className="pd-accordion__text">{section.intro}</p>}
                   {section.items && (
                     <ul className="pd-accordion__list">
@@ -207,9 +201,6 @@ const ProductDetail = () => {
         }}
       />
 
-      {showModal && (
-        <ProductModal product={product} onClose={() => setShowModal(false)} />
-      )}
     </section>
   )
 }

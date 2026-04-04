@@ -1,10 +1,10 @@
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
 import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
-import mapVoorkant from '../assets/Map_voorkant.png'
-import mapAchterkant from '../assets/Map_achterkant.png'
-import mapBinnenkant from '../assets/Map_binnenkant.png'
-import mapZijkant from '../assets/Map_zijkant.png'
-import mapBinnenkantSfeer from '../assets/map_binnenkant_sfeer.png'
+import mapVoorkant from '../assets/Bewaarbaar_voorkant_flat.jpg'
+import mapAchterkant from '../assets/Bewaarbaar_achterkant_flat.jpg'
+import mapIK from '../assets/Bewaarbaar_IK_flat.jpg'
+import mapInhoud from '../assets/Bewaarbaar_inhoud_flat.jpg'
+import mapKnutsel from '../assets/Bewaarbaar_knutsel_flat.jpg'
 
 const products = [
   {
@@ -13,13 +13,13 @@ const products = [
     subtitle: 'Van groep 1 t/m groep 8',
     price: '\u20AC39,95',
     image: basisschoolImg,
-    hoverImage: mapBinnenkantSfeer,
-    gallery: [mapVoorkant, mapAchterkant, mapBinnenkant, mapZijkant],
-    galleryLabels: ['Voorkant', 'Achterkant', 'Binnenkant', 'Zijkant'],
+    hoverImage: null,
+    gallery: [mapVoorkant, mapInhoud, mapKnutsel, mapIK, mapAchterkant],
+    galleryLabels: ['Voorkant', 'Inhoud', 'Knutselwerkjes', 'Dit ben ik', 'Achterkant'],
     comingSoon: false,
     shopifyId: '10609642963281',
     description: 'De basisschool duurt maar 8 jaar. Maar de herinneringen zijn voor altijd.',
-    longDescription: 'Jouw kind gaat maar \u00e9\u00e9n keer naar de basisschool.\n\nDie eerste tekening in groep 1. Het rapport vol sterren. De schoolfoto waarop ze nog zo klein zijn. Voor je het weet zijn ze voorbij \u2014 en liggen die herinneringen verspreid in lades, dozen en plastic tasjes die je nooit meer terugvindt.\n\nDe Grote Basisschool Bewaarmap is speciaal ontworpen om dat te voorkomen. E\u00e9n mooie, stevige map voor alle 8 jaar basisschool \u2014 met per groep eigen pagina\u2019s, foto-hoesjes en invulvelden voor de mooiste momenten.',
+    longDescription: 'Die eerste tekening in groep 1. Het rapport vol sterren. De schoolfoto waarop ze nog zo klein zijn. Voor je het weet zijn ze voorbij.\n\nDe Grote Basisschool Bewaarmap bewaart alles op \u00e9\u00e9n plek \u2014 met per groep eigen pagina\u2019s, foto-hoesjes en invulvelden voor de mooiste momenten.',
     sections: [
       {
         title: 'Wat zit er in de map?',
