@@ -32,6 +32,7 @@ const NewArrivals = () => {
         >
           <div className="new-arrivals__image-swap">
             <img src={product.image} alt={product.name} className="new-arrivals__product-img new-arrivals__product-img--front" loading="lazy" />
+            {product.hoverImage && <img src={product.hoverImage} alt={`${product.name} binnenkant`} className="new-arrivals__product-img new-arrivals__product-img--back" loading="lazy" />}
           </div>
           <span className="new-arrivals__view-label">Bekijk details</span>
         </div>
