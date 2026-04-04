@@ -108,6 +108,13 @@ const ProductDetail = () => {
           <h1 className="product-detail__name">{product.name}</h1>
           <p className="product-detail__subtitle">{product.subtitle}</p>
           <p className="product-detail__price">{product.price}</p>
+
+          {!product.comingSoon && product.shopifyId && (
+            <div className="product-detail__buy">
+              <ShopifyBuyButton productId={product.shopifyId} />
+            </div>
+          )}
+
           <div className="product-detail__desc">
             {product.longDescription.split('\n\n').map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
@@ -162,16 +169,33 @@ const ProductDetail = () => {
             </div>
           )}
 
-          {!product.comingSoon && product.shopifyId ? (
-            <div className="product-detail__buy">
-              <ShopifyBuyButton productId={product.shopifyId} />
-            </div>
-          ) : product.comingSoon ? (
+          {product.comingSoon ? (
             <div className="product-detail__notify">
               <p>Wil je als eerste weten wanneer deze beschikbaar is?</p>
               <Link to="/contact" className="product-detail__notify-btn">Houd me op de hoogte</Link>
             </div>
-          ) : null}
+          ) : null }
+
+        </div>
+      </div>
+
+      {/* Reviews */}
+      <div className="product-detail__reviews">
+        <h2 className="product-detail__reviews-title">Wat klanten zeggen</h2>
+        <div className="product-detail__reviews-grid">
+          {[
+            { name: 'Laura S.', rating: 5, text: 'Wat een prachtig cadeau voor mijn dochter! De kwaliteit is echt geweldig en de pagina\'s zijn zo leuk ingedeeld. We gaan er zeker jaren plezier van hebben.' },
+            { name: 'Marieke V.', rating: 5, text: 'Super blij met deze map. Eindelijk een mooie plek voor alle schoolfoto\'s en tekeningen die anders verloren gaan. Aanrader!' },
+            { name: 'Thomas B.', rating: 5, text: 'Als cadeau voor onze neefje gekocht. De kwaliteit viel echt in positieve zin op. Snel geleverd ook.' },
+          ].map((review, i) => (
+            <div key={i} className="product-detail__review">
+              <div className="product-detail__review-stars">
+                {'★'.repeat(review.rating)}
+              </div>
+              <p className="product-detail__review-text">"{review.text}"</p>
+              <span className="product-detail__review-name">{review.name}</span>
+            </div>
+          ))}
         </div>
       </div>
 
