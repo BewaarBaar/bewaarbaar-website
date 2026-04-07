@@ -259,6 +259,44 @@
   font-size: 1.2rem;
 }
 
+/* Social proof */
+.product-detail__social-proof {
+  font-size: 1.2rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* Stock badge */
+.product-detail__stock {
+  font-size: 1.2rem;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* Trust badges */
+.product-detail__trust {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 1.15rem;
+  color: #666;
+}
+
+/* Delivery */
+.product-detail__delivery {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* Gift */
+.product-detail__gift {
+  font-size: 1.25rem;
+  color: #666;
+  font-style: italic;
+}
+
 /* Shipping */
 .product-detail__shipping {
   font-size: 1.2rem;

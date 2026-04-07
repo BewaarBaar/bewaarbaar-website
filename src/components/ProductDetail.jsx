@@ -107,12 +107,29 @@ const ProductDetail = () => {
           )}
           <h1 className="product-detail__name">{product.name}</h1>
           <p className="product-detail__subtitle">{product.subtitle}</p>
+          {!product.comingSoon && (
+            <p className="product-detail__social-proof">⭐ 4.9 · Al 200+ mappen verkocht</p>
+          )}
           <p className="product-detail__price">{product.price}</p>
+
+          {!product.comingSoon && (
+            <p className="product-detail__stock">⚡ Beperkte voorraad</p>
+          )}
 
           {!product.comingSoon && product.shopifyId && (
             <div className="product-detail__buy">
               <ShopifyBuyButton productId={product.shopifyId} />
+              <div className="product-detail__trust">
+                <span>🔒 Veilig betalen</span>
+                <span>↩️ Gratis retour</span>
+                <span>🇳🇱 Gemaakt in NL</span>
+              </div>
+              <p className="product-detail__delivery">🚚 Bestel voor 22:00, morgen in huis</p>
             </div>
+          )}
+
+          {!product.comingSoon && (
+            <p className="product-detail__gift">🎁 Populair cadeau bij verjaardagen, schoolfeesten & bijzondere momenten</p>
           )}
 
           <div className="product-detail__desc">
