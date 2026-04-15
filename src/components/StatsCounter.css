@@ -1,74 +1,53 @@
-/* ===== Stats Counter Section ===== */
+/* ===== Benefit Pills Section ===== */
 
 .stats {
   background-color: var(--color-teal);
-  padding: 50px 40px;
+  padding: 28px 40px;
 }
 
-.stats__grid {
+.stats__pills {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
-  max-width: 1000px;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.stats__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 6px;
-}
-
-.stats__icon {
+.stats__pill {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 4px;
-}
-
-.stats__number {
-  font-family: var(--font-heading);
-  font-size: 3.2rem;
-  font-weight: 700;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 40px;
+  padding: 10px 20px;
   color: #fff;
-  line-height: 1;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.stats__label {
-  font-family: var(--font-body);
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 500;
+.stats__pill-icon {
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.stats__pill-label {
+  letter-spacing: 0.1px;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .stats {
-    padding: 40px 20px;
-  }
-
-  .stats__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .stats__number {
-    font-size: 2.6rem;
-  }
-
-  .stats__label {
-    font-size: 1.2rem;
-  }
+  .stats { padding: 24px 20px; }
+  .stats__pill { font-size: 1.3rem; padding: 9px 16px; }
+  .stats__pills { gap: 10px; }
 }
 
 @media (max-width: 480px) {
-  .stats { padding: 30px 16px; }
-  .stats__number { font-size: 2.2rem; }
-  .stats__grid { gap: 20px; }
-  .stats__label { font-size: 1.1rem; }
+  .stats { padding: 20px 16px; }
+  .stats__pill { font-size: 1.2rem; padding: 8px 14px; }
 }

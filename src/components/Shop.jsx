@@ -75,10 +75,10 @@ const Shop = () => {
                 <h3 className="shop__product-name">
                   <Link to={`/shop/${product.slug}`} className="shop__product-link">{product.name}</Link>
                 </h3>
-                <p className="shop__product-subtitle">{product.subtitle}</p>
                 <p className="shop__product-price">
                   {product.comingSoon ? '' : product.price}
                 </p>
+                <p className="shop__product-subtitle">{product.subtitle}</p>
                 {!product.comingSoon && product.shopifyId && (
                   <ShopifyBuyButton productId={product.shopifyId} />
                 )}
