@@ -33,7 +33,7 @@ const Reviews = () => {
     <section className="reviews" ref={sectionRef}>
       <div className="reviews__header scroll-reveal">
         <span className="reviews__label">Eerste reacties</span>
-        <h2 className="reviews__title">Wat testgebruikers zeggen</h2>
+        <h2 className="reviews__title">Wat mensen zeggen</h2>
         <p className="reviews__subtitle">
           We hebben de bewaarmap laten testen door ouders en leerkrachten. Dit zijn hun eerlijke reacties.
         </p>
@@ -51,10 +51,6 @@ const Reviews = () => {
                   <span className="reviews__card-role">{testimonial.role}</span>
                 </div>
               </div>
-              <span className="reviews__tag">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                {testimonial.tag}
-              </span>
             </div>
           </div>
         ))}

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
 import ShopifyBuyButton from './ShopifyBuyButton'
-import heroImg from '../assets/basisschool-bewaarmap-happykids.jpg'
+import heroImg from '../assets/Bewaarbaar_Hero_Website3.jpg'
 import products from '../data/products'
 
 const usps = [
@@ -39,7 +39,7 @@ const Shop = () => {
       {/* Product cards die over de hero schuiven */}
       <div className="shop__cards-section">
         <div className="shop__grid">
-          {products.map((product, index) => (
+          {products.filter(p => !p.comingSoon).map((product, index) => (
             <div
               className={`shop__product shop__product--rotate-${index + 1} scroll-reveal scroll-reveal--delay-${index + 1}`}
               key={index}
