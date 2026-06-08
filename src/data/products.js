@@ -64,7 +64,7 @@ const products = [
     galleryLabels: ['Voorkant', 'Inhoud', 'Knutselwerkjes', 'Dit ben ik', 'Achterkant'],
     comingSoon: false,
     isDigital: true,
-    shopifyId: null,
+    shopifyId: '10864302621009',
     description: 'Dezelfde bewaarmap als het fysieke product — als PDF drukbestand om zelf te printen.',
     longDescription: 'Wil je de Grote Basisschool Bewaarmap zelf printen en inbinden? Met het digitale drukbestand heb je alles in handen.\n\nNa betaling ontvang je direct een PDF op printershoge resolutie (300 dpi). Laat hem printen bij een copyshopje bij jou in de buurt, of thuis op A4.',
     sections: [
