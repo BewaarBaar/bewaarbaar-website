@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react'
 
 const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
   const containerRef = useRef(null)
-  const initialized = useRef(false)
 
   useEffect(() => {
-    if (initialized.current) return
-    initialized.current = true
+    if (!containerRef.current) return
+    // Clear any previous button when productId changes
+    containerRef.current.innerHTML = ''
 
     const init = () => {
       if (!window.ShopifyBuy || !window.ShopifyBuy.UI) {
