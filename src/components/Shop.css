@@ -126,6 +126,12 @@
   text-transform: uppercase;
 }
 
+.shop__product-badge--digital {
+  background: var(--color-teal);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 /* Image swap */
 .shop__image-swap {
   position: relative;

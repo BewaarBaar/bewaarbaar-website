@@ -52,6 +52,9 @@ const Shop = () => {
                 {product.comingSoon && (
                   <span className="shop__product-badge">Komt binnenkort</span>
                 )}
+                {product.isDigital && (
+                  <span className="shop__product-badge shop__product-badge--digital">📥 Digitaal</span>
+                )}
                 {product.image ? (
                   <div className="shop__image-swap">
                     <img src={product.image} alt={product.name} className="shop__product-image shop__product-image--front" loading="lazy" />

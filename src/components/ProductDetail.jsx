@@ -112,8 +112,12 @@ const ProductDetail = () => {
           )}
           <p className="product-detail__price">{product.price}</p>
 
-          {!product.comingSoon && (
+          {!product.comingSoon && !product.isDigital && (
             <p className="product-detail__stock">⚡ Beperkte voorraad</p>
+          )}
+
+          {!product.comingSoon && product.isDigital && (
+            <p className="product-detail__digital-badge">📥 Direct beschikbaar na betaling</p>
           )}
 
           {!product.comingSoon && product.shopifyId && (
@@ -128,7 +132,20 @@ const ProductDetail = () => {
             </div>
           )}
 
-          {!product.comingSoon && (
+          {!product.comingSoon && product.isDigital && !product.shopifyId && (
+            <div className="product-detail__buy">
+              <a href="/contact" className="product-detail__digital-cta">
+                Bestel het drukbestand →
+              </a>
+              <div className="product-detail__trust">
+                <span>🔒 Veilig betalen</span>
+                <span>📥 Direct downloadbaar</span>
+                <span>📄 PDF 300 dpi</span>
+              </div>
+            </div>
+          )}
+
+          {!product.comingSoon && !product.isDigital && (
             <p className="product-detail__gift">🎁 Populair cadeau bij verjaardagen, schoolfeesten & bijzondere momenten</p>
           )}
 

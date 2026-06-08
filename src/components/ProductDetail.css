@@ -273,6 +273,33 @@
   font-weight: 600;
 }
 
+/* Digital badge */
+.product-detail__digital-badge {
+  font-size: 1.2rem;
+  color: var(--color-teal-dark);
+  font-weight: 600;
+}
+
+/* Digital CTA button */
+.product-detail__digital-cta {
+  display: inline-block;
+  background: var(--color-teal);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 0.2px;
+}
+
+.product-detail__digital-cta:hover {
+  background: var(--color-teal-dark);
+  transform: translateY(-2px);
+}
+
 /* Trust badges */
 .product-detail__trust {
   display: flex;
