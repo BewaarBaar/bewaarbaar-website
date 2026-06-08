@@ -125,10 +125,21 @@ const ProductDetail = () => {
               <ShopifyBuyButton productId={product.shopifyId} />
               <div className="product-detail__trust">
                 <span>🔒 Veilig betalen</span>
-                <span>↩️ Gratis retour</span>
-                <span>🇳🇱 Gemaakt in NL</span>
+                {product.isDigital ? (
+                  <>
+                    <span>📥 Direct downloadbaar</span>
+                    <span>📄 PDF 300 dpi</span>
+                  </>
+                ) : (
+                  <>
+                    <span>↩️ Gratis retour</span>
+                    <span>🇳🇱 Gemaakt in NL</span>
+                  </>
+                )}
               </div>
-              <p className="product-detail__delivery">🚚 Bestel voor 22:00, morgen in huis</p>
+              {!product.isDigital && (
+                <p className="product-detail__delivery">🚚 Bestel voor 22:00, morgen in huis</p>
+              )}
             </div>
           )}
 
