@@ -2,7 +2,6 @@ import './Shop.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
-import ShopifyBuyButton from './ShopifyBuyButton'
 import heroImg from '../assets/Bewaarbaar_Hero_Website3.jpg'
 import products from '../data/products'
 
@@ -82,9 +81,6 @@ const Shop = () => {
                   {product.comingSoon ? '' : product.price}
                 </p>
                 <p className="shop__product-subtitle">{product.subtitle}</p>
-                {!product.comingSoon && product.shopifyId && (
-                  <ShopifyBuyButton productId={product.shopifyId} />
-                )}
               </div>
             </div>
           ))}

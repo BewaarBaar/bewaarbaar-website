@@ -55,10 +55,15 @@ const Hero = () => {
             <SplitText delay={0.9}>Bewaar het. Voor altijd.</SplitText>
           </strong>
         </h1>
-        <div ref={magneticRef}>
-          <Link to="/shop" className="hero__cta hero__cta--animated">
-            Bekijk de Collectie
-            <span className="hero__cta-arrow">→</span>
+        <div className="hero__ctas">
+          <div ref={magneticRef}>
+            <Link to="/shop/basisschool-bewaarmap" className="hero__cta hero__cta--animated">
+              Bestel nu — €39,95
+              <span className="hero__cta-arrow">→</span>
+            </Link>
+          </div>
+          <Link to="/shop" className="hero__cta-secondary hero__cta--animated">
+            Bekijk alle producten
           </Link>
         </div>
       </div>

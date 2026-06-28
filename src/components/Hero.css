@@ -26,6 +26,31 @@
   object-position: center center;
 }
 
+.hero__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hero__cta-secondary {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cta-appear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 1.6s;
+  transition: color 0.2s;
+}
+
+.hero__cta-secondary:hover {
+  color: #fff;
+}
+
 .hero__overlay {
   position: relative;
   z-index: 1;

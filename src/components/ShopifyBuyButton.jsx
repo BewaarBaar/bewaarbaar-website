@@ -5,12 +5,15 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
 
   useEffect(() => {
     if (!containerRef.current) return
-    // Clear any previous button when productId changes
     containerRef.current.innerHTML = ''
 
+    let cancelled = false
+    let timeoutId = null
+
     const init = () => {
+      if (cancelled) return
       if (!window.ShopifyBuy || !window.ShopifyBuy.UI) {
-        setTimeout(init, 250)
+        timeoutId = setTimeout(init, 250)
         return
       }
 
@@ -20,6 +23,7 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
       })
 
       window.ShopifyBuy.UI.onReady(client).then((ui) => {
+        if (cancelled) return
         ui.createComponent('product', {
           id: productId,
           node: containerRef.current,
@@ -164,6 +168,12 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
     }
 
     init()
+
+    return () => {
+      cancelled = true
+      if (timeoutId) clearTimeout(timeoutId)
+      if (containerRef.current) containerRef.current.innerHTML = ''
+    }
   }, [productId])
 
   return <div ref={containerRef} />

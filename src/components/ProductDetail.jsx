@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, useLayoutEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import './ProductDetail.css'
 import { getProductBySlug } from '../data/products'
@@ -39,6 +39,8 @@ const ProductDetail = () => {
   const { slug } = useParams()
   const product = getProductBySlug(slug)
   const [activeImg, setActiveImg] = useState(0)
+  const [showStickyBar, setShowStickyBar] = useState(false)
+  const buyRef = useRef(null)
 
   useEffect(() => {
     if (product) {
@@ -51,6 +53,16 @@ const ProductDetail = () => {
       const metaDesc = document.querySelector('meta[name="description"]')
       if (metaDesc) metaDesc.setAttribute('content', 'Bewaar de mooiste schoolherinneringen van je kind in een prachtige bewaarmap. Van groep 1 tot groep 8. Bestel nu bij Bewaarbaar.')
     }
+  }, [product])
+
+  useEffect(() => {
+    if (!buyRef.current) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyBar(!entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(buyRef.current)
+    return () => observer.disconnect()
   }, [product])
 
   if (!product) return <Navigate to="/shop" replace />
@@ -107,21 +119,14 @@ const ProductDetail = () => {
           )}
           <h1 className="product-detail__name">{product.name}</h1>
           <p className="product-detail__subtitle">{product.subtitle}</p>
-          {!product.comingSoon && (
-            <p className="product-detail__social-proof">⭐ 4.9 · Al 200+ mappen verkocht</p>
-          )}
           <p className="product-detail__price">{product.price}</p>
-
-          {!product.comingSoon && !product.isDigital && (
-            <p className="product-detail__stock">⚡ Beperkte voorraad</p>
-          )}
 
           {!product.comingSoon && product.isDigital && (
             <p className="product-detail__digital-badge">📥 Direct beschikbaar na betaling</p>
           )}
 
           {!product.comingSoon && product.shopifyId && (
-            <div className="product-detail__buy">
+            <div className="product-detail__buy" ref={buyRef}>
               <ShopifyBuyButton productId={product.shopifyId} />
               <div className="product-detail__trust">
                 <span>🔒 Veilig betalen</span>
@@ -137,9 +142,6 @@ const ProductDetail = () => {
                   </>
                 )}
               </div>
-              {!product.isDigital && (
-                <p className="product-detail__delivery">🚚 Bestel voor 22:00, morgen in huis</p>
-              )}
             </div>
           )}
 
@@ -243,6 +245,24 @@ const ProductDetail = () => {
           ))}
         </div>
       </div>
+
+      {/* Sticky mobile buy bar */}
+      {!product.comingSoon && product.shopifyId && (
+        <div className={`product-detail__sticky-bar ${showStickyBar ? 'product-detail__sticky-bar--visible' : ''}`}>
+          <div className="product-detail__sticky-bar-inner">
+            <div>
+              <span className="product-detail__sticky-name">{product.name}</span>
+              <span className="product-detail__sticky-price">{product.price}</span>
+            </div>
+            <button
+              className="product-detail__sticky-cta"
+              onClick={() => buyRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+            >
+              Bestel nu
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* JSON-LD structured data for SEO */}
       <script
