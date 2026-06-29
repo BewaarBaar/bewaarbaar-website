@@ -2,7 +2,7 @@
 
 .tubelight-header {
   position: fixed;
-  top: 0;
+  top: var(--promo-height, 0px);
   left: 0;
   right: 0;
   z-index: 1000;
@@ -206,7 +206,7 @@
 
 .tubelight-nav__mobile-menu {
   position: fixed;
-  top: 72px;
+  top: calc(var(--promo-height, 0px) + 72px);
   left: 20px;
   right: 20px;
   background: rgba(240, 247, 235, 0.92);
