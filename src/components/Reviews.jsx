@@ -32,10 +32,10 @@ const Reviews = () => {
   return (
     <section className="reviews" ref={sectionRef}>
       <div className="reviews__header scroll-reveal">
-        <span className="reviews__label">Eerste reacties</span>
+        <span className="reviews__label">Ervaringen</span>
         <h2 className="reviews__title">Wat mensen zeggen</h2>
         <p className="reviews__subtitle">
-          We hebben de bewaarmap laten testen door ouders en leerkrachten. Dit zijn hun eerlijke reacties.
+          Dit zeggen ouders over de Bewaarbaar map.
         </p>
       </div>
 

@@ -23,6 +23,7 @@ import PrivacyPolicy from './components/PrivacyPolicy'
 import Terms from './components/Terms'
 import CookieBanner from './components/CookieBanner'
 import ProductDetail from './components/ProductDetail'
+import PromoBanner from './components/PromoBanner'
 
 function HomePage() {
   return (
@@ -91,6 +92,7 @@ function App() {
     <BrowserRouter>
       <SmoothScroll />
       <ScrollToTop />
+      <PromoBanner />
       <Navbar />
       <main>
         <AnimatedRoutes />

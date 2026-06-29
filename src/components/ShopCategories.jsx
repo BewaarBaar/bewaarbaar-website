@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useTiltEffect } from '../hooks/useTiltEffect'
 import basisschoolImg from '../assets/Basisschool-Bewaarmap-square.png'
-import kinderdagverblijfImg from '../assets/kinderdagverblijf-Bewaarmap-square.jpg'
+import digitaalImg from '../assets/Bewaarbaar_voorkant_flat.jpg'
 
 const ShopCategories = () => {
   const sectionRef = useScrollReveal()
@@ -31,17 +31,17 @@ const ShopCategories = () => {
         </Link>
 
         <Link
-          to="/shop"
+          to="/shop/basisschool-bewaarmap-digitaal"
           className="shop-categories__card shop-categories__card--peach scroll-reveal scroll-reveal--right"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
           <div className="tilt-shine" />
-          <h2 className="shop-categories__title">Kinderdagverblijf Bewaarmap</h2>
+          <h2 className="shop-categories__title">Digitaal Drukbestand</h2>
+          <p className="shop-categories__price-tag">Vanaf €12,50</p>
           <div className="shop-categories__image-wrapper shop-categories__image-wrapper--cloud">
             <div className="shop-categories__image-placeholder shop-categories__image-placeholder--heart">
-              <img src={kinderdagverblijfImg} alt="Kinderdagverblijf Bewaarmap" className="shop-categories__image" loading="lazy" />
-              <span className="shop-categories__coming-soon">Komt binnenkort</span>
+              <img src={digitaalImg} alt="Digitaal Drukbestand Bewaarmap" className="shop-categories__image" loading="lazy" />
             </div>
           </div>
         </Link>
