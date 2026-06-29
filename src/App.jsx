@@ -24,11 +24,13 @@ import Terms from './components/Terms'
 import CookieBanner from './components/CookieBanner'
 import ProductDetail from './components/ProductDetail'
 import PromoBanner from './components/PromoBanner'
+import TrustBar from './components/TrustBar'
 
 function HomePage() {
   return (
     <PageTransition>
       <Hero />
+      <TrustBar />
       <ShopCategories />
       <NewArrivals />
       <FeatureBanner />

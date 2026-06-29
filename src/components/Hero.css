@@ -26,6 +26,36 @@
   object-position: center center;
 }
 
+.hero__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  animation-delay: 1.2s;
+}
+
+.hero__price-current {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.hero__price-was {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  text-decoration: line-through;
+}
+
+.hero__price-sub {
+  width: 100%;
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.85);
+  margin-top: -4px;
+}
+
 .hero__ctas {
   display: flex;
   flex-direction: column;

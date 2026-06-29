@@ -13,13 +13,22 @@ const ShopCategories = () => {
     <section className="shop-categories animated-gradient" ref={sectionRef}>
       <div className="shop-categories__grid">
         <Link
-          to="/shop"
+          to="/shop/basisschool-bewaarmap"
           className="shop-categories__card shop-categories__card--teal scroll-reveal scroll-reveal--left"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
           <div className="tilt-shine" />
           <h2 className="shop-categories__title">Basisschool Bewaarmap</h2>
+          <div className="shop-categories__pricing">
+            <span className="shop-categories__price-current">€38,90</span>
+            <span className="shop-categories__price-was">Was €43,90</span>
+            <ul className="shop-categories__price-breakdown">
+              <li>Bewaarmap: €34,95</li>
+              <li>Verzending NL: €3,95</li>
+              <li className="shop-categories__price-discount">Code ZOMER2026: −€5,00</li>
+            </ul>
+          </div>
           <div className="shop-categories__image-wrapper shop-categories__image-wrapper--heart">
             <div className="shop-categories__image-placeholder shop-categories__image-placeholder--bookmark">
               <img src={basisschoolImg} alt="Basisschool Bewaarmap" className="shop-categories__image" loading="lazy" />
@@ -38,7 +47,14 @@ const ShopCategories = () => {
         >
           <div className="tilt-shine" />
           <h2 className="shop-categories__title">Digitaal Drukbestand</h2>
-          <p className="shop-categories__price-tag">Vanaf €12,50</p>
+          <div className="shop-categories__pricing">
+            <span className="shop-categories__price-current">€12,50</span>
+            <ul className="shop-categories__price-breakdown">
+              <li>✓ Geen verzendkosten</li>
+              <li>✓ Direct in je inbox</li>
+              <li>✓ Zelf printen & inbinden</li>
+            </ul>
+          </div>
           <div className="shop-categories__image-wrapper shop-categories__image-wrapper--cloud">
             <div className="shop-categories__image-placeholder shop-categories__image-placeholder--heart">
               <img src={digitaalImg} alt="Digitaal Drukbestand Bewaarmap" className="shop-categories__image" loading="lazy" />

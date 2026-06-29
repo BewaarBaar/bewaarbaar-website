@@ -55,10 +55,15 @@ const Hero = () => {
             <SplitText delay={0.9}>Bewaar het. Voor altijd.</SplitText>
           </strong>
         </h1>
+        <div className="hero__price hero__cta--animated">
+          <span className="hero__price-current">€38,90</span>
+          <span className="hero__price-was">Was €43,90</span>
+          <span className="hero__price-sub">Bewaarmap + verzending inclusief · Code <strong>ZOMER2026</strong>: €5 extra korting</span>
+        </div>
         <div className="hero__ctas">
           <div ref={magneticRef}>
-            <Link to="/shop" className="hero__cta hero__cta--animated">
-              Bestel nu — vanaf €12,50
+            <Link to="/shop/basisschool-bewaarmap" className="hero__cta hero__cta--animated">
+              Bestel nu — €38,90
               <span className="hero__cta-arrow">→</span>
             </Link>
           </div>

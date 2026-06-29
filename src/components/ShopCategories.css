@@ -47,15 +47,49 @@
   z-index: 2;
 }
 
-.shop-categories__price-tag {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-dark);
-  opacity: 0.7;
-  margin-top: -14px;
-  margin-bottom: 16px;
+.shop-categories__pricing {
   position: relative;
   z-index: 2;
+  margin-top: -10px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.shop-categories__price-current {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--color-dark);
+}
+
+.shop-categories__price-was {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.4);
+  text-decoration: line-through;
+}
+
+.shop-categories__price-breakdown {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shop-categories__price-breakdown li {
+  font-size: 1.2rem;
+  color: rgba(0,0,0,0.65);
+}
+
+.shop-categories__price-discount {
+  color: #1a7a4a !important;
+  font-weight: 700 !important;
 }
 
 .shop-categories__image-wrapper {
