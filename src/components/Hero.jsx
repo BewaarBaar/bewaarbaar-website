@@ -3,8 +3,8 @@ import './Hero.css'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useMagneticEffect } from '../hooks/useMagneticEffect'
-import heroBg from '../assets/Bewaarbaar_Hero_Website3.jpg'
-import heroBgMobile from '../assets/Bewaarbaar_Hero_Mobile.jpg'
+import heroBg from '../assets/Bewaarbaar_Hero_Website4.jpg'
+import heroBgMobile from '../assets/Bewaarbaar_Hero_Website4.jpg'
 
 const SplitText = ({ children, className = '', delay = 0 }) => {
   const words = children.split(' ')

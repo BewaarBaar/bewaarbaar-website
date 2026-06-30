@@ -199,7 +199,7 @@
 
 @media (max-width: 768px) {
   .hero { height: 100vh; min-height: 500px; }
-  .hero__bg-img { object-position: center 30%; }
+  .hero__bg-img { object-position: 78% center; }
   .hero__overlay {
     padding: 20px 20px 36px;
     align-items: flex-start;
