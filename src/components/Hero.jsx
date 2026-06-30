@@ -69,6 +69,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <div className="hero__scroll-cue" aria-hidden="true">
+        <span className="hero__scroll-cue-dot" />
+      </div>
     </section>
   )
 }
