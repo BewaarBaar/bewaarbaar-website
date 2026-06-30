@@ -70,7 +70,10 @@ const Hero = () => {
         </div>
       </div>
       <div className="hero__scroll-cue" aria-hidden="true">
-        <span className="hero__scroll-cue-dot" />
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 5v14" />
+          <path d="M5 12l7 7 7-7" />
+        </svg>
       </div>
     </section>
   )
