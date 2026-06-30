@@ -96,8 +96,8 @@ const Footer = () => {
             <h3 className="footer__links-title">Shop</h3>
             <ul>
               <li><Link to="/shop" className="footer__link">Alle Bewaarmappen</Link></li>
-              <li><Link to="/shop" className="footer__link">Basisschool</Link></li>
-              <li><Link to="/shop" className="footer__link">Kinderdagverblijf</Link></li>
+              <li><Link to="/shop/basisschool-bewaarmap" className="footer__link">Basisschool</Link></li>
+              <li><Link to="/shop/basisschool-bewaarmap-digitaal" className="footer__link">Digitaal Drukbestand</Link></li>
             </ul>
           </div>
           <div className="footer__links-col scroll-reveal">
