@@ -137,7 +137,7 @@ const ProductDetail = () => {
                   </>
                 ) : (
                   <>
-                    <span>↩️ Gratis retour</span>
+                    <span>✅ 30 dagen geld-terug-garantie</span>
                     <span>🇳🇱 Gemaakt in NL</span>
                   </>
                 )}

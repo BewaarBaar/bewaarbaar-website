@@ -24,7 +24,7 @@ const ShopCategories = () => {
             <span className="shop-categories__price-current">€38,90</span>
             <span className="shop-categories__price-was">Was €43,90</span>
             <ul className="shop-categories__price-breakdown">
-              <li>Bewaarmap: €34,95</li>
+              <li>Bewaarmap: €39,95</li>
               <li>Verzending NL: €3,95</li>
               <li className="shop-categories__price-discount">Code ZOMER2026: −€5,00</li>
             </ul>

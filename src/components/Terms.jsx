@@ -69,9 +69,10 @@ const Terms = () => {
         <div className="legal__section">
           <h2 className="legal__section-title">7. Herroepingsrecht</h2>
           <p className="legal__text">
-            Je hebt het recht om binnen 14 dagen na ontvangst van je bestelling de overeenkomst zonder
-            opgave van reden te ontbinden (herroepingsrecht). Om gebruik te maken van je herroepingsrecht
-            kun je contact opnemen via <a href="mailto:info@bewaarbaar.nl">info@bewaarbaar.nl</a>.
+            Je hebt het wettelijke recht om binnen 14 dagen na ontvangst van je bestelling de overeenkomst
+            zonder opgave van reden te ontbinden (herroepingsrecht). Bewaarbaar verlengt deze termijn als
+            extra service naar 30 dagen geld-terug-garantie. Om hier gebruik van te maken kun je contact
+            opnemen via <a href="mailto:info@bewaarbaar.nl">info@bewaarbaar.nl</a>.
           </p>
           <p className="legal__text">Voorwaarden voor retournering:</p>
           <ul className="legal__list">

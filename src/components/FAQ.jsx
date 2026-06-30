@@ -45,7 +45,7 @@ const faqs = [
       },
       {
         q: 'Kan ik mijn bestelling retourneren?',
-        a: 'Ja, je hebt 14 dagen bedenktijd. Als de bewaarmap ongebruikt en in originele verpakking is, kun je deze retourneren. Neem contact met ons op via het contactformulier.'
+        a: 'Ja, dankzij onze 30-dagen geld-terug-garantie heb je ruim de tijd om te beslissen. Als de bewaarmap ongebruikt en in originele verpakking is, kun je deze binnen 30 dagen retourneren. Neem contact met ons op via het contactformulier.'
       },
       {
         q: 'Welke betaalmethoden worden geaccepteerd?',
