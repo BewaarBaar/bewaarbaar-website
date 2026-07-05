@@ -67,6 +67,12 @@ const Hero = () => {
               <span className="hero__cta-arrow">→</span>
             </Link>
           </div>
+          <button
+            className="hero__cta-secondary"
+            onClick={() => document.querySelector('.reviews')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          >
+            Kijk wat ouders zeggen →
+          </button>
         </div>
       </div>
       <div className="hero__scroll-cue" aria-hidden="true">
