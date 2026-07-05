@@ -6,6 +6,7 @@ import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import NewArrivals from './components/NewArrivals'
+import BeeTimeline from './components/BeeTimeline'
 import FeatureBanner from './components/FeatureBanner'
 import CribStages from './components/CribStages'
 import About from './components/About'
@@ -31,6 +32,7 @@ function HomePage() {
       <Hero />
       <TrustBar />
       <NewArrivals />
+      <BeeTimeline />
       <FeatureBanner />
       <StatsCounter />
       <CribStages />
