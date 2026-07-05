@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './BeeTimeline.css'
-import beeImg from '../assets/bij.png'
+import beeImg from '../assets/Bij.png'
 import starImg from '../assets/ster.png'
 
 const PATH = 'M 20,160 C 120,55 210,255 330,155 C 440,65 530,245 650,155 C 710,110 760,130 780,140'
