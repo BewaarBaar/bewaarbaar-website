@@ -5,7 +5,6 @@ import { AnimatePresence } from 'framer-motion'
 import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import ShopCategories from './components/ShopCategories'
 import NewArrivals from './components/NewArrivals'
 import FeatureBanner from './components/FeatureBanner'
 import CribStages from './components/CribStages'
@@ -31,7 +30,6 @@ function HomePage() {
     <PageTransition>
       <Hero />
       <TrustBar />
-      <ShopCategories />
       <NewArrivals />
       <FeatureBanner />
       <StatsCounter />

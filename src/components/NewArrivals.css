@@ -183,6 +183,21 @@
   }
 }
 
+.new-arrivals__digital-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.new-arrivals__digital-link:hover {
+  color: var(--color-dark);
+  transform: translateX(3px);
+}
+
 @media (max-width: 480px) {
   .new-arrivals { padding: 30px 16px; }
   .new-arrivals__section-title { font-size: 2rem; }

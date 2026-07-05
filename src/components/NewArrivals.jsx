@@ -47,6 +47,9 @@ const NewArrivals = () => {
             <p className="new-arrivals__product-price">{product.price}</p>
             <ShopifyBuyButton productId="10609642963281" />
           </div>
+          <Link to="/shop/basisschool-bewaarmap-digitaal" className="new-arrivals__digital-link">
+            Ook beschikbaar als digitaal drukbestand →
+          </Link>
         </div>
       </div>
     </section>
