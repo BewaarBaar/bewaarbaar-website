@@ -37,16 +37,15 @@
   height: 100%;
 }
 
-/* Bee */
+/* Bee — no CSS transition; rAF gives 60fps smoothness directly */
 .bee-tl__bee {
   position: absolute;
   width: 60px;
   height: auto;
   pointer-events: none;
-  will-change: left, top, transform;
+  will-change: transform;
   z-index: 2;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
-  transition: left 0.05s linear, top 0.05s linear;
 }
 
 /* Stars */
@@ -93,14 +92,14 @@
   color: rgba(26, 26, 46, 0.58);
 }
 
-/* Above: label sits above the dot */
+/* Above: label sits above the dot — extra clearance so bee doesn't overlap */
 .bee-tl__label--above {
-  transform: translateX(-50%) translateY(calc(-100% - 22px));
+  transform: translateX(-50%) translateY(calc(-100% - 36px));
 }
 
 /* Below: label sits below the dot */
 .bee-tl__label--below {
-  transform: translateX(-50%) translateY(18px);
+  transform: translateX(-50%) translateY(22px);
 }
 
 .bee-tl__label--active {
