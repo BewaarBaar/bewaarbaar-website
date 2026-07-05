@@ -33,13 +33,24 @@
 
 @media (max-width: 768px) {
   .trust-bar {
-    flex-direction: column;
-    gap: 4px;
-    padding: 14px 16px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .trust-bar::-webkit-scrollbar { display: none; }
   .trust-bar__item {
+    flex-shrink: 0;
+    padding: 10px 18px;
     border-left: none !important;
-    padding: 4px 0;
   }
-  .trust-bar__text { font-size: 1.2rem; white-space: normal; text-align: center; }
+  .trust-bar__item + .trust-bar__item {
+    border-left: 1px solid rgba(255,255,255,0.3) !important;
+  }
+  .trust-bar__icon { font-size: 1.3rem; }
+  .trust-bar__text { font-size: 1.05rem; white-space: nowrap; }
 }
