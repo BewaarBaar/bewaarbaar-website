@@ -1,7 +1,18 @@
+/* Tall wrapper gives the sticky section scroll distance to animate through */
+.bee-tl__wrapper {
+  height: 260vh;
+}
+
 .bee-tl {
-  padding: 80px 40px 100px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 0 40px;
   background: var(--color-cream, #f0f7eb);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bee-tl__header {
@@ -25,8 +36,9 @@
 /* Stage: maintains 800:300 aspect ratio so % positions map to SVG coords */
 .bee-tl__stage {
   position: relative;
+  width: 100%;
   max-width: 900px;
-  margin: 0 auto;
+  align-self: center;
   aspect-ratio: 800 / 300;
 }
 
@@ -106,9 +118,14 @@
   opacity: 1;
 }
 
-/* Mobile */
+/* Mobile — disable sticky, revert to regular scroll */
 @media (max-width: 768px) {
-  .bee-tl { padding: 60px 16px 80px; }
+  .bee-tl__wrapper { height: auto; }
+  .bee-tl {
+    position: static;
+    height: auto;
+    padding: 60px 16px 80px;
+  }
   .bee-tl__title { font-size: 2rem; }
   .bee-tl__desc  { font-size: 1.15rem; }
   .bee-tl__stage { aspect-ratio: 800 / 420; }
