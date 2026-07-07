@@ -8,8 +8,13 @@ const CookieBanner = () => {
 
   useEffect(() => {
     const consent = localStorage.getItem('bewaarbaar_cookie_consent')
-    if (!consent) {
-      // Small delay so banner doesn't flash on load
+    if (consent === 'accepted') {
+      // Returning user — restore consent and fire page view
+      if (window.gtag) {
+        window.gtag('consent', 'update', { analytics_storage: 'granted' })
+        window.gtag('config', 'G-GQ7SEL4R44', { page_path: window.location.pathname })
+      }
+    } else if (!consent) {
       const timer = setTimeout(() => setVisible(true), 1000)
       return () => clearTimeout(timer)
     }
@@ -18,11 +23,9 @@ const CookieBanner = () => {
   const handleAccept = () => {
     localStorage.setItem('bewaarbaar_cookie_consent', 'accepted')
     setVisible(false)
-    // Initialize analytics if accepted
     if (window.gtag) {
-      window.gtag('consent', 'update', {
-        analytics_storage: 'granted',
-      })
+      window.gtag('consent', 'update', { analytics_storage: 'granted' })
+      window.gtag('config', 'G-GQ7SEL4R44', { page_path: window.location.pathname })
     }
   }
 
