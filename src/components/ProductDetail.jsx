@@ -152,16 +152,20 @@ const ProductDetail = () => {
                 <span className="pd-promo__tag">🎁 ZOMERACTIE</span>
                 <span className="pd-promo__timer">⏰ Nog {timeLeft.days} dagen {timeLeft.hours} uur</span>
               </div>
+              <div className="pd-promo__deal-row">
+                <span className="pd-promo__base">€39,95</span>
+                <span className="pd-promo__shipping">+ gratis verzending</span>
+              </div>
               <div className="pd-promo__code-row">
-                <span className="pd-promo__code-label">Kortingscode</span>
+                <span className="pd-promo__code-label">Code</span>
                 <span className="pd-promo__code">ZOMER2026</span>
+                <span className="pd-promo__saving">= −€5</span>
               </div>
-              <div className="pd-promo__price-row">
+              <div className="pd-promo__total-row">
+                <span className="pd-promo__total-label">Totaal</span>
                 <span className="pd-promo__final">€34,95</span>
-                <span className="pd-promo__was">was €39,95</span>
-                <span className="pd-promo__saving">−€5 korting</span>
+                <span className="pd-promo__total-note">🎉 verzending gratis!</span>
               </div>
-              <p className="pd-promo__note">Voer de code in bij het afrekenen · + €3,95 verzending</p>
             </div>
           )}
 
