@@ -35,12 +35,33 @@ const Accordion = ({ title, children, defaultOpen = false }) => {
   )
 }
 
+const PROMO_END = new Date('2026-08-01T00:00:00')
+
+const useCountdown = () => {
+  const [timeLeft, setTimeLeft] = useState(null)
+  useEffect(() => {
+    const update = () => {
+      const diff = PROMO_END - new Date()
+      if (diff <= 0) { setTimeLeft(null); return }
+      setTimeLeft({
+        days:  Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+      })
+    }
+    update()
+    const id = setInterval(update, 60000)
+    return () => clearInterval(id)
+  }, [])
+  return timeLeft
+}
+
 const ProductDetail = () => {
   const { slug } = useParams()
   const product = getProductBySlug(slug)
   const [activeImg, setActiveImg] = useState(0)
   const [showStickyBar, setShowStickyBar] = useState(false)
   const buyRef = useRef(null)
+  const timeLeft = useCountdown()
 
   useEffect(() => {
     if (product) {
@@ -123,6 +144,25 @@ const ProductDetail = () => {
 
           {!product.comingSoon && product.isDigital && (
             <p className="product-detail__digital-badge">📥 Direct beschikbaar na betaling</p>
+          )}
+
+          {!product.comingSoon && product.shopifyId && !product.isDigital && timeLeft && (
+            <div className="pd-promo">
+              <div className="pd-promo__header">
+                <span className="pd-promo__tag">🎁 ZOMERACTIE</span>
+                <span className="pd-promo__timer">⏰ Nog {timeLeft.days} dagen {timeLeft.hours} uur</span>
+              </div>
+              <div className="pd-promo__code-row">
+                <span className="pd-promo__code-label">Kortingscode</span>
+                <span className="pd-promo__code">ZOMER2026</span>
+              </div>
+              <div className="pd-promo__price-row">
+                <span className="pd-promo__final">€34,95</span>
+                <span className="pd-promo__was">was €39,95</span>
+                <span className="pd-promo__saving">−€5 korting</span>
+              </div>
+              <p className="pd-promo__note">Voer de code in bij het afrekenen · + €3,95 verzending</p>
+            </div>
           )}
 
           {!product.comingSoon && product.shopifyId && (

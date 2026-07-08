@@ -526,3 +526,102 @@
     display: block;
   }
 }
+
+/* ===== Promo urgency banner ===== */
+.pd-promo {
+  background: #e8832a;
+  border-radius: 14px;
+  padding: 18px 20px 14px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.pd-promo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pd-promo__tag {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.pd-promo__timer {
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: rgba(0,0,0,0.18);
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.pd-promo__code-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pd-promo__code-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.pd-promo__code {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: rgba(255,255,255,0.2);
+  border: 2px dashed rgba(255,255,255,0.6);
+  border-radius: 8px;
+  padding: 4px 14px;
+}
+
+.pd-promo__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.pd-promo__final {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pd-promo__was {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.pd-promo__saving {
+  font-size: 1rem;
+  font-weight: 700;
+  background: rgba(0,0,0,0.18);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.pd-promo__note {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pd-promo { padding: 16px 16px 12px; }
+  .pd-promo__code { font-size: 1.6rem; }
+  .pd-promo__final { font-size: 2.4rem; }
+  .pd-promo__tag { font-size: 1.1rem; }
+}
