@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
+const ShopifyBuyButton = ({ productId = '10609642963281', productName = '', productPrice = 0 }) => {
   const containerRef = useRef(null)
 
   useEffect(() => {
@@ -30,6 +30,17 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
           moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
           options: {
             product: {
+              events: {
+                addVariantToCart: () => {
+                  if (window.gtag) {
+                    window.gtag('event', 'add_to_cart', {
+                      currency: 'EUR',
+                      value: productPrice,
+                      items: [{ item_id: productId, item_name: productName, price: productPrice, quantity: 1 }],
+                    })
+                  }
+                },
+              },
               styles: {
                 product: {
                   "@media (min-width: 601px)": {
@@ -64,6 +75,17 @@ const ShopifyBuyButton = ({ productId = '10609642963281' }) => {
             },
             cart: {
               popup: false,
+              events: {
+                openCheckout: () => {
+                  if (window.gtag) {
+                    window.gtag('event', 'begin_checkout', {
+                      currency: 'EUR',
+                      value: productPrice,
+                      items: [{ item_id: productId, item_name: productName, price: productPrice, quantity: 1 }],
+                    })
+                  }
+                },
+              },
               styles: {
                 cart: {
                   "background-color": "#faf9f6",

@@ -47,7 +47,7 @@ const products = [
       'Ontworpen & gedrukt in Nederland \ud83c\uddf3\ud83c\uddf1',
     ],
     shippingLines: [
-      '\ud83d\udce6 Verzending \u20AC3,95 \u2014 Gratis vanaf \u20AC50',
+      '\ud83d\udce6 Gratis verzending',
       '\ud83d\ude9a Geleverd binnen 2-3 werkdagen',
     ],
     metaTitle: 'Basisschool Bewaarmap \u2014 Alle schoolherinneringen bewaren | Bewaarbaar',

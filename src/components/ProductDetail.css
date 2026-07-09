@@ -646,3 +646,157 @@
   .pd-promo__final { font-size: 2.4rem; }
   .pd-promo__tag { font-size: 1.1rem; }
 }
+
+/* ===== Themes Visual Section ===== */
+
+.pd-themes {
+  position: relative;
+  background: #FEFAE8;
+  padding: 64px 40px 56px;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.pd-themes__bee {
+  position: absolute;
+  top: 24px;
+  right: 48px;
+  width: 52px;
+  opacity: 0.6;
+  transform: scaleX(-1) rotate(-20deg);
+  pointer-events: none;
+}
+
+.pd-themes__title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2.6rem;
+  color: #3BAF8A;
+  margin: 0 0 44px;
+  line-height: 1.2;
+}
+
+.pd-themes__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 16px;
+  max-width: 820px;
+  margin: 0 auto 40px;
+}
+
+.pd-themes__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.pd-themes__icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pd-themes__group {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.15rem;
+  color: #3BAF8A;
+}
+
+.pd-themes__theme {
+  font-size: 0.82rem;
+  color: #888;
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+.pd-themes__subtitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #E8832A;
+  margin: 0 auto 28px;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.pd-themes__teaser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FEFAE8;
+  border: 1.5px solid #3BAF8A;
+  color: #3BAF8A;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+  text-align: left;
+}
+
+.pd-themes__teaser:hover {
+  background: #3BAF8A;
+  color: #fff;
+}
+
+.pd-themes__teaser-icons {
+  display: flex;
+  gap: 4px;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.pd-themes__teaser-text {
+  flex: 1;
+}
+
+.pd-themes__teaser-arrow {
+  font-style: normal;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .pd-themes {
+    padding: 48px 20px 44px;
+    margin-top: 40px;
+  }
+
+  .pd-themes__bee {
+    width: 38px;
+    right: 20px;
+    top: 16px;
+  }
+
+  .pd-themes__title {
+    font-size: 1.85rem;
+    margin-bottom: 32px;
+  }
+
+  .pd-themes__grid {
+    gap: 16px 8px;
+  }
+
+  .pd-themes__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .pd-themes__group {
+    font-size: 0.95rem;
+  }
+
+  .pd-themes__theme {
+    font-size: 0.72rem;
+  }
+
+  .pd-themes__subtitle {
+    font-size: 0.95rem;
+  }
+}

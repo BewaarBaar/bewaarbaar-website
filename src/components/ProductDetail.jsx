@@ -3,6 +3,15 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import './ProductDetail.css'
 import { getProductBySlug } from '../data/products'
 import ShopifyBuyButton from './ShopifyBuyButton'
+import beeImg from '../assets/Bij.png'
+import groep1Img from '../assets/Bewaarbaar_illustratie-groep1.png'
+import groep2Img from '../assets/Bewaarbaar_illustratie-groep2.png'
+import groep3Img from '../assets/Bewaarbaar_illustratie-groep3.png'
+import groep4Img from '../assets/Bewaarbaar_illustratie-groep4.png'
+import groep5Img from '../assets/Bewaarbaar_illustratie-groep5.png'
+import groep6Img from '../assets/Bewaarbaar_illustratie-groep6.png'
+import groep7Img from '../assets/Bewaarbaar_illustratie-groep7.png'
+import groep8Img from '../assets/Bewaarbaar_illustratie-groep8.png'
 
 const Accordion = ({ title, children, defaultOpen = false }) => {
   const [open, setOpen] = useState(defaultOpen)
@@ -140,6 +149,21 @@ const ProductDetail = () => {
           )}
           <h1 className="product-detail__name">{product.name}</h1>
           <p className="product-detail__subtitle">{product.subtitle}</p>
+          {!product.comingSoon && !product.isDigital && (
+            <button
+              className="pd-themes__teaser"
+              onClick={() => {
+                const el = document.querySelector('.pd-themes')
+                if (!el) return
+                const top = el.getBoundingClientRect().top + window.scrollY - 100
+                window.scrollTo({ top, behavior: 'smooth' })
+              }}
+            >
+              <span className="pd-themes__teaser-icons">🌻🐷🪐🎉</span>
+              <span className="pd-themes__teaser-text">Elk jaar een eigen thema pagina</span>
+              <span className="pd-themes__teaser-arrow">↓</span>
+            </button>
+          )}
           <p className="product-detail__price">{product.price}</p>
 
           {!product.comingSoon && product.isDigital && (
@@ -171,7 +195,11 @@ const ProductDetail = () => {
 
           {!product.comingSoon && product.shopifyId && (
             <div className="product-detail__buy" ref={buyRef}>
-              <ShopifyBuyButton productId={product.shopifyId} />
+              <ShopifyBuyButton
+                productId={product.shopifyId}
+                productName={product.name}
+                productPrice={parseFloat((product.price || '0').replace('€', '').replace(',', '.'))}
+              />
               <div className="product-detail__trust">
                 <span>🔒 Veilig betalen</span>
                 {product.isDigital ? (
@@ -269,6 +297,35 @@ const ProductDetail = () => {
 
         </div>
       </div>
+
+      {/* Themes visual */}
+      {!product.comingSoon && !product.isDigital && (
+        <div className="pd-themes">
+          <img src={beeImg} className="pd-themes__bee" alt="" aria-hidden="true" />
+          <h2 className="pd-themes__title">Elk jaar een eigen thema pagina</h2>
+          <div className="pd-themes__grid">
+            {[
+              { n: 1, theme: 'bloemen',               img: groep1Img },
+              { n: 2, theme: 'fruit',                  img: groep2Img },
+              { n: 3, theme: 'boerderij\ndieren',      img: groep3Img },
+              { n: 4, theme: 'verkeer',                img: groep4Img },
+              { n: 5, theme: 'zeedieren',              img: groep5Img },
+              { n: 6, theme: 'ridders en\nprinsessen', img: groep6Img },
+              { n: 7, theme: 'ruimte\nleven',          img: groep7Img },
+              { n: 8, theme: 'feest',                  img: groep8Img },
+            ].map(({ n, theme, img }) => (
+              <div key={n} className="pd-themes__item">
+                <img src={img} alt={theme} className="pd-themes__icon" />
+                <span className="pd-themes__group">Groep {n}</span>
+                <span className="pd-themes__theme">{theme}</span>
+              </div>
+            ))}
+          </div>
+          <p className="pd-themes__subtitle">
+            Met vragen, foto's en opdrachten — speciaal ontworpen voor elk schooljaar
+          </p>
+        </div>
+      )}
 
       {/* Reviews */}
       <div className="product-detail__reviews">
