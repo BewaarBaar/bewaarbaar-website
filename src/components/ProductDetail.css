@@ -512,7 +512,22 @@
   .product-detail__price { font-size: 2.2rem; }
   .product-detail__desc { font-size: 1.35rem; }
   .product-detail__reviews-header { padding: 0 20px; }
-  .product-detail__review { width: 78vw; }
+  .product-detail__reviews-bee-track { display: none; }
+  .product-detail__reviews-outer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .product-detail__reviews-outer::-webkit-scrollbar { display: none; }
+  .product-detail__reviews-grid {
+    animation: none;
+    padding: 8px 20px 20px;
+  }
+  .product-detail__review {
+    width: 80vw;
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 480px) {
