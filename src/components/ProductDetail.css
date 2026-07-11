@@ -397,15 +397,23 @@
 }
 
 .product-detail__reviews-bee {
-  width: 46px;
-  transform: scaleX(-1) rotate(-10deg);
-  opacity: 0.75;
-  animation: bee-bob 2.4s ease-in-out infinite;
+  position: absolute;
+  top: 110px;
+  left: -70px;
+  width: 52px;
+  pointer-events: none;
+  z-index: 2;
+  animation: bee-fly 55s linear infinite, bee-bob 2.2s ease-in-out infinite;
+}
+
+@keyframes bee-fly {
+  0%   { left: -70px; }
+  100% { left: calc(100% + 70px); }
 }
 
 @keyframes bee-bob {
-  0%, 100% { transform: scaleX(-1) rotate(-10deg) translateY(0); }
-  50%       { transform: scaleX(-1) rotate(-6deg) translateY(-5px); }
+  0%, 100% { transform: scaleX(-1) rotate(-12deg) translateY(0); }
+  50%       { transform: scaleX(-1) rotate(-6deg) translateY(-10px); }
 }
 
 .product-detail__reviews-outer {
@@ -715,15 +723,6 @@
   margin-top: 60px;
 }
 
-.pd-themes__bee {
-  position: absolute;
-  top: 24px;
-  right: 48px;
-  width: 52px;
-  opacity: 0.6;
-  transform: scaleX(-1) rotate(-20deg);
-  pointer-events: none;
-}
 
 .pd-themes__title {
   font-family: 'Fredoka One', sans-serif;

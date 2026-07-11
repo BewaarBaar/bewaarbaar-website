@@ -313,7 +313,6 @@ const ProductDetail = () => {
       {/* Themes visual */}
       {!product.comingSoon && !product.isDigital && (
         <div className="pd-themes">
-          <img src={beeImg} className="pd-themes__bee" alt="" aria-hidden="true" />
           <h2 className="pd-themes__title">Elk jaar een eigen thema pagina</h2>
           <div className="pd-themes__grid">
             {[
@@ -341,9 +340,9 @@ const ProductDetail = () => {
 
       {/* Reviews */}
       <div className="product-detail__reviews reviews">
+        <img src={beeImg} className="product-detail__reviews-bee" alt="" aria-hidden="true" />
         <div className="product-detail__reviews-header">
           <h2 className="product-detail__reviews-title">Wat klanten zeggen</h2>
-          <img src={beeImg} className="product-detail__reviews-bee" alt="" aria-hidden="true" />
         </div>
         <div className="product-detail__reviews-outer">
           <div className="product-detail__reviews-grid">
