@@ -396,19 +396,22 @@
   margin: 0;
 }
 
-.product-detail__reviews-bee {
-  position: absolute;
-  top: 110px;
-  left: -70px;
-  width: 52px;
-  pointer-events: none;
-  z-index: 2;
-  animation: bee-fly 55s linear infinite, bee-bob 2.2s ease-in-out infinite;
+.product-detail__reviews-bee-track {
+  display: inline-flex;
+  align-items: center;
+  animation: bee-fly 55s linear infinite;
 }
 
 @keyframes bee-fly {
-  0%   { left: -70px; }
-  100% { left: calc(100% + 70px); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 120px)); }
+}
+
+.product-detail__reviews-bee {
+  width: 52px;
+  display: block;
+  pointer-events: none;
+  animation: bee-bob 2.2s ease-in-out infinite;
 }
 
 @keyframes bee-bob {

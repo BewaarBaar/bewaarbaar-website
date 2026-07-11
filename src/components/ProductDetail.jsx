@@ -340,9 +340,11 @@ const ProductDetail = () => {
 
       {/* Reviews */}
       <div className="product-detail__reviews reviews">
-        <img src={beeImg} className="product-detail__reviews-bee" alt="" aria-hidden="true" />
         <div className="product-detail__reviews-header">
           <h2 className="product-detail__reviews-title">Wat klanten zeggen</h2>
+          <span className="product-detail__reviews-bee-track">
+            <img src={beeImg} className="product-detail__reviews-bee" alt="" aria-hidden="true" />
+          </span>
         </div>
         <div className="product-detail__reviews-outer">
           <div className="product-detail__reviews-grid">
