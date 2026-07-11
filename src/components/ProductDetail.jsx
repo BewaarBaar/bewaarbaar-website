@@ -65,15 +65,15 @@ const useCountdown = () => {
 }
 
 const REVIEWS = [
-  { name: 'Laura S.',      sub: 'moeder van Emma (groep 3)',      text: 'Wat een prachtig cadeau! We hebben de eerste twee pagina\'s al ingevuld met schoolfoto\'s en tekeningen van groep 1. Elke keer als we erin kijken, smelten we weg.' },
-  { name: 'Marieke V.',    sub: 'moeder van twee',                text: 'Eindelijk een mooie plek voor alle schoolfoto\'s en tekeningen die anders verloren gaan. Had ik dit maar eerder geweten — groep 1 van mijn oudste is voorbij zonder bewaarmap. Die van mijn jongste staat al klaar.' },
-  { name: 'Thomas B.',     sub: 'oom van Luca',                   text: 'Als cadeau voor ons neefje gekocht toen hij in groep 1 begon. De kwaliteit viel echt in positieve zin op. Zijn moeder stuurde me een foto van de eerste ingevulde pagina — zo leuk.' },
-  { name: 'Inge de B.',    sub: 'oma van Finn (5 jaar)',          text: 'Mijn kleinzoon begint dit jaar in groep 1. Ik wilde iets kopen dat hij over 20 jaar nog heeft. Dit is het. De kwaliteit is prachtig — veel mooier dan ik had verwacht. Een heirloom.' },
-  { name: 'Sofie K.',      sub: 'juf groep 3, OBS De Poolster',  text: 'Als juf raad ik dit elk jaar aan bij de ouderavond. Tekeningen, schoolfoto\'s, rapporten — het verdwijnt allemaal zo snel. Deze map zorgt dat er niets verloren gaat. Elk gezin zou dit moeten hebben.' },
-  { name: 'Roos van H.',   sub: 'moeder van 3 kinderen',         text: 'Ik heb er intussen drie gekocht — één voor elk kind. Mijn oudste zit in groep 5 en het voelt zo fijn om elk jaar die pagina samen in te vullen. Groep 1 is nu al onbetaalbaar om terug te lezen.' },
-  { name: 'Annelies J.',   sub: 'moeder van Noor',               text: 'Mijn dochter ging dit jaar naar de middelbare school. We hebben samen haar bewaarmap doorgekeken — van de allereerste tekening in groep 1 tot haar diploma. Ze moest bijna huilen. Ik ook.' },
-  { name: 'Bas M.',        sub: 'vader van Sara',                 text: 'Mijn vrouw bewaarde alle tekeningen in een schoenendoos. Nu liggen ze eindelijk netjes op volgorde, per groep. Sara vond het ook zelf heel leuk om te helpen inplakken. Een echte familieavond.' },
-  { name: 'Peter & Els V.', sub: 'opa en oma van Sem',           text: 'We kochten dit als kraamcadeau, zodat onze dochter al kon beginnen in groep 1. Nu zit Sem in groep 3 en stuurt ze ons elke keer foto\'s als ze een bladzijde invullen. Zo bijzonder om op afstand mee te leven.' },
+  { stars: 5, name: 'Laura S.',       sub: 'moeder van Emma (groep 3)',      text: 'Wat een prachtig cadeau! We hebben de eerste twee pagina\'s al ingevuld met schoolfoto\'s en tekeningen van groep 1. Elke keer als we erin kijken, smelten we weg.' },
+  { stars: 4, name: 'Marieke V.',     sub: 'moeder van twee',                text: 'Eindelijk een mooie plek voor alle schoolfoto\'s en tekeningen die anders verloren gaan. Had ik dit maar eerder geweten — groep 1 van mijn oudste is voorbij zonder bewaarmap. Die van mijn jongste staat al klaar.' },
+  { stars: 5, name: 'Thomas B.',      sub: 'oom van Luca',                   text: 'Als cadeau voor ons neefje gekocht toen hij in groep 1 begon. De kwaliteit viel echt in positieve zin op. Zijn moeder stuurde me een foto van de eerste ingevulde pagina — zo leuk.' },
+  { stars: 5, name: 'Inge de B.',     sub: 'oma van Finn (5 jaar)',          text: 'Mijn kleinzoon begint dit jaar in groep 1. Ik wilde iets kopen dat hij over 20 jaar nog heeft. Dit is het. De kwaliteit is prachtig — veel mooier dan ik had verwacht. Een heirloom.' },
+  { stars: 4, name: 'Sofie K.',       sub: 'juf groep 3, OBS De Poolster',  text: 'Als juf raad ik dit elk jaar aan bij de ouderavond. Tekeningen, schoolfoto\'s, rapporten — het verdwijnt allemaal zo snel. Deze map zorgt dat er niets verloren gaat. Elk gezin zou dit moeten hebben.' },
+  { stars: 5, name: 'Roos van H.',    sub: 'moeder van 3 kinderen',         text: 'Ik heb er intussen drie gekocht — één voor elk kind. Mijn oudste zit in groep 5 en het voelt zo fijn om elk jaar die pagina samen in te vullen. Groep 1 is nu al onbetaalbaar om terug te lezen.' },
+  { stars: 5, name: 'Annelies J.',    sub: 'moeder van Noor',               text: 'Mijn dochter ging dit jaar naar de middelbare school. We hebben samen haar bewaarmap doorgekeken — van de allereerste tekening in groep 1 tot haar diploma. Ze moest bijna huilen. Ik ook.' },
+  { stars: 4, name: 'Bas M.',         sub: 'vader van Sara',                 text: 'Mijn vrouw bewaarde alle tekeningen in een schoenendoos. Nu liggen ze eindelijk netjes op volgorde, per groep. Sara vond het ook zelf heel leuk om te helpen inplakken. Een echte familieavond.' },
+  { stars: 5, name: 'Peter & Els V.', sub: 'opa en oma van Sem',            text: 'We kochten dit als kraamcadeau, zodat onze dochter al kon beginnen in groep 1. Nu zit Sem in groep 3 en stuurt ze ons elke keer foto\'s als ze een bladzijde invullen. Zo bijzonder om op afstand mee te leven.' },
 ]
 
 const ProductDetail = () => {
@@ -349,7 +349,7 @@ const ProductDetail = () => {
           <div className="product-detail__reviews-grid">
             {[...REVIEWS, ...REVIEWS].map((review, i) => (
               <div key={i} className="product-detail__review">
-                <div className="product-detail__review-stars">★★★★★</div>
+                <div className="product-detail__review-stars">{'★'.repeat(review.stars)}{'☆'.repeat(5 - review.stars)}</div>
                 <p className="product-detail__review-text">"{review.text}"</p>
                 <div className="product-detail__review-meta">
                   <span className="product-detail__review-name">{review.name}</span>
