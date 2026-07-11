@@ -328,20 +328,63 @@ const ProductDetail = () => {
       )}
 
       {/* Reviews */}
-      <div className="product-detail__reviews">
+      <div className="product-detail__reviews reviews">
         <h2 className="product-detail__reviews-title">Wat klanten zeggen</h2>
         <div className="product-detail__reviews-grid">
           {[
-            { name: 'Laura S.', rating: 5, text: 'Wat een prachtig cadeau voor mijn dochter! De kwaliteit is echt geweldig en de pagina\'s zijn zo leuk ingedeeld. We gaan er zeker jaren plezier van hebben.' },
-            { name: 'Marieke V.', rating: 5, text: 'Super blij met deze map. Eindelijk een mooie plek voor alle schoolfoto\'s en tekeningen die anders verloren gaan. Aanrader!' },
-            { name: 'Thomas B.', rating: 5, text: 'Als cadeau voor onze neefje gekocht. De kwaliteit viel echt in positieve zin op. Snel geleverd ook.' },
+            {
+              name: 'Laura S.',
+              sub: 'moeder van Emma (groep 3)',
+              text: 'Wat een prachtig cadeau! We hebben de eerste twee pagina’s al ingevuld met schoolfoto’s en tekeningen van groep 1. Elke keer als we erin kijken, smelten we weg.',
+            },
+            {
+              name: 'Marieke V.',
+              sub: 'moeder van twee',
+              text: 'Eindelijk een mooie plek voor alle schoolfoto’s en tekeningen die anders verloren gaan. Had ik dit maar eerder geweten — groep 1 van mijn oudste is voorbij zonder bewaarmap. Die van mijn jongste staat al klaar.',
+            },
+            {
+              name: 'Thomas B.',
+              sub: 'oom van Luca',
+              text: 'Als cadeau voor ons neefje gekocht toen hij in groep 1 begon. De kwaliteit viel echt in positieve zin op. Zijn moeder stuurde me een foto van de eerste ingevulde pagina — zo leuk.',
+            },
+            {
+              name: 'Inge de B.',
+              sub: 'oma van Finn (5 jaar)',
+              text: 'Mijn kleinzoon begint dit jaar in groep 1. Ik wilde iets kopen dat hij over 20 jaar nog heeft. Dit is het. De kwaliteit is prachtig — veel mooier dan ik had verwacht. Een heirloom.',
+            },
+            {
+              name: 'Sofie K.',
+              sub: 'juf groep 3, OBS De Poolster',
+              text: 'Als juf raad ik dit elk jaar aan bij de ouderavond. Tekeningen, schoolfoto’s, rapporten — het verdwijnt allemaal zo snel. Deze map zorgt dat er niets verloren gaat. Elk gezin zou dit moeten hebben.',
+            },
+            {
+              name: 'Roos van H.',
+              sub: 'moeder van 3 kinderen',
+              text: 'Ik heb er intussen drie gekocht — één voor elk kind. Mijn oudste zit in groep 5 en het voelt zo fijn om elk jaar die pagina samen in te vullen. Groep 1 is nu al onbetaalbaar om terug te lezen.',
+            },
+            {
+              name: 'Annelies J.',
+              sub: 'moeder van Noor',
+              text: 'Mijn dochter ging dit jaar naar de middelbare school. We hebben samen haar bewaarmap doorgekeken — van de allereerste tekening in groep 1 tot haar diploma. Ze moest bijna huilen. Ik ook.',
+            },
+            {
+              name: 'Bas M.',
+              sub: 'vader van Sara',
+              text: 'Mijn vrouw bewaarde alle tekeningen in een schoenendoos. Nu liggen ze eindelijk netjes op volgorde, per groep. Sara vond het ook zelf heel leuk om te helpen inplakken. Een echte familieavond.',
+            },
+            {
+              name: 'Peter & Els V.',
+              sub: 'opa en oma van Sem',
+              text: 'We kochten dit als kraamcadeau, zodat onze dochter al kon beginnen in groep 1. Nu zit Sem in groep 3 en stuurt ze ons elke keer foto\'s als ze een bladzijde invullen. Zo bijzonder om op afstand mee te leven.',
+            },
           ].map((review, i) => (
             <div key={i} className="product-detail__review">
-              <div className="product-detail__review-stars">
-                {'★'.repeat(review.rating)}
-              </div>
+              <div className="product-detail__review-stars">★★★★★</div>
               <p className="product-detail__review-text">"{review.text}"</p>
-              <span className="product-detail__review-name">{review.name}</span>
+              <div className="product-detail__review-meta">
+                <span className="product-detail__review-name">{review.name}</span>
+                <span className="product-detail__review-sub">{review.sub}</span>
+              </div>
             </div>
           ))}
         </div>

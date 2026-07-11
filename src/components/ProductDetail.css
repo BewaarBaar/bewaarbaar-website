@@ -394,29 +394,46 @@
 
 .product-detail__review {
   background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .product-detail__review-stars {
   color: #f4a824;
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+  font-size: 1.2rem;
   letter-spacing: 2px;
 }
 
 .product-detail__review-text {
-  font-size: 1.25rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 12px;
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.05rem;
+  color: #2a2a2a;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.product-detail__review-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
 }
 
 .product-detail__review-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #888;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
+.product-detail__review-sub {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-style: italic;
 }
 
 /* ===== Responsive ===== */
@@ -443,7 +460,20 @@
   .product-detail__price { font-size: 2.2rem; }
   .product-detail__desc { font-size: 1.35rem; }
   .product-detail__reviews-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .product-detail__reviews-grid::-webkit-scrollbar { display: none; }
+  .product-detail__review {
+    min-width: 80vw;
+    scroll-snap-align: start;
+    flex-shrink: 0;
   }
 }
 
